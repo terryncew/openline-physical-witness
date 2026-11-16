@@ -1,4 +1,6 @@
-# Physical Witness — experiments
+# OpenLine Sensors — experiments
+
+- [Data-center water audit 002](./data-center-water-002/README.md): free read-only CSV water/energy accounting and transparent comparison of constructed cooling scenarios. [Public challenge](./data-center-water-002/CHALLENGE.md). No measured savings or live controls.
 
 - [Modular cartridge 007](./modular-cartridge/README.md): low-capital scale/production de-risking; editable review CAD, gasket tolerance checker, electrode/substrate challenge matrix, hypothetical cost threshold, explicit HOLD.
 
