@@ -1,0 +1,71 @@
+{
+  "schema": "openline.sensors.public_literature_benchmarks.v1",
+  "provenance_policy": "Every entry below is from a published, legally shareable primary source. None of these records constitutes an OpenLine field trial or measured OpenLine water saving.",
+  "documented_public_data_gap": "No publicly licensed dataset currently provides synchronized hourly or sub-hourly data-center IT server power, liquid-cooling CDU temperatures/flows, and cooling-tower makeup/blowdown meter volumes from a live production AI data center.",
+  "published_sources": [
+    {
+      "id": "LBNL_2024_US_DATACENTER_REPORT",
+      "citation": "Shehabi et al., 2024 United States Data Center Energy Usage Report, Lawrence Berkeley National Laboratory (LBNL-2001637, Dec 2024, DOI: 10.71468/P1WC7Q)",
+      "url": "https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report",
+      "license": "U.S. DOE / LBNL Open Publication",
+      "evidence_type": "NATIONAL_FLEET_EMPIRICAL_AND_MODELED_INVENTORY",
+      "key_metrics": {
+        "us_2023_direct_site_water_liters": 66000000000,
+        "us_2023_indirect_electricity_water_liters": 800000000000,
+        "us_2023_fleet_average_site_wue_l_per_kwh": 0.36,
+        "us_2028_projected_fleet_site_wue_l_per_kwh": [0.45, 0.48],
+        "hyperscale_median_site_wue_l_per_kwh": 0.32
+      }
+    },
+    {
+      "id": "HARVARD_2026_HYPERSCALE_WATER_GEOGRAPHY",
+      "citation": "Guidi & Dominici, The Hidden Water Geography of U.S. Hyperscale Data Centers in the AI Era, Harvard T.H. Chan School of Public Health (Aug 2026)",
+      "url": "https://www.researchgate.net/publication/408326368_The_hidden_water_geography_of_US_hyperscale_data_centers_in_the_AI_era",
+      "license": "Academic Preprint / Public Summary",
+      "evidence_type": "FACILITY_BASIN_AND_BALANCING_AUTHORITY_INVENTORY",
+      "key_metrics": {
+        "us_hyperscale_facilities_analyzed": 472,
+        "direct_cooling_water_gl_per_yr": 74.16,
+        "indirect_electricity_water_gl_per_yr": 225.74,
+        "total_operational_water_gl_per_yr": 299.89
+      }
+    },
+    {
+      "id": "LEE_2026_COLDPLATE_FLEXIBLE_MEMS",
+      "citation": "Chi-Yuan Lee et al., In Situ Characterization of Local Thermal-Hydraulic Characteristics in a Liquid-Cooling Cold Plate for AI Servers Using an Embedded Flexible MEMS Microsensor, Micromachines 2026, 17(11), 1312 (Nov 12, 2026)",
+      "url": "https://www.mdpi.com/2072-666X/17/11/1312",
+      "license": "CC BY 4.0",
+      "evidence_type": "PUBLISHED_LAB_BENCHTOP_EXPERIMENT",
+      "key_metrics": {
+        "flow_rates_tested_lpm": [2.0, 3.0, 4.0],
+        "measured_delta_T_at_3lpm_degC": 4.38,
+        "continuous_test_duration_hours": 120.0,
+        "temp_sensitivity_drift_120h_pct": -7.23,
+        "flow_sensitivity_drift_120h_pct": -5.39,
+        "pressure_sensitivity_drift_120h_pct": -4.71
+      }
+    },
+    {
+      "id": "LBNL_FDD_COOLING_TOWER_CHILLER_DATASET",
+      "citation": "Granderson et al., A Labeled Dataset for Building HVAC Systems Operating in Faulted and Fault-Free States, Scientific Data 10, 342 (2023, PMC10235024)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10235024/",
+      "license": "CC BY 4.0",
+      "evidence_type": "LABELED_SIMULATION_AND_TESTBED_HVAC_FAULT_SERIES",
+      "key_metrics": {
+        "cooling_tower_fouling_severities_pct": [95, 80, 65],
+        "includes_condenser_leaving_temp_sensor_bias": true
+      }
+    },
+    {
+      "id": "ZENODO_2026_LARGE_COMPUTATIONAL_LOAD_STANDARD",
+      "citation": "Measurement Standard for Large Computational Loads (Oct 8, 2026, Zenodo DOI: 10.5281/zenodo.23246001)",
+      "url": "https://zenodo.org/doi/10.5281/zenodo.23246001",
+      "license": "Open Access Standard",
+      "evidence_type": "METROLOGY_AND_MASS_BALANCE_SPECIFICATION",
+      "key_metrics": {
+        "makeup_relation": "M = E * CoC / (CoC - 1) (independent of drift)",
+        "blowdown_relation": "B = E / (CoC - 1) - D (drift displaces blowdown one-for-one)"
+      }
+    }
+  ]
+}
