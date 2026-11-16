@@ -1,4 +1,6 @@
-# OpenLine Physical Witness
+# OpenLine Sensors
+
+*Physical Witness is the name of the underlying research program. “OpenLine Sensors” is the public-facing label, not a claim that functioning hardware exists.*
 
 **Open computational research toward earlier detection of mineral buildup on water-treatment membranes.** This project asks whether thermal and electrical measurements can help separate real surface deposits from changes in dissolved salts, temperature and water flow. If the approach survives physical testing and proves inexpensive to manufacture, it could help operators make better decisions about cleaning and water recovery in desalination, reuse and industrial systems. **No physical benefit has been demonstrated.**
 
