@@ -24,8 +24,11 @@ The **NC5 failure remains open:** in the original *synthetic* partial-reference-
 **Reproduce each independent artifact:**
 
 ```bash
-# Original computational release (Python 3.11 + pinned requirements + GCC)
-bash ./REPRODUCE_OTDB_APW_RELEASE_004.sh
+# Original 004 checks run from frozen source: the evolving main README has new research links
+# Download/extract the v0.4.0-rc4 release ZIP, or check out the immutable tag:
+git fetch --tags
+git worktree add /tmp/physical-witness-004 v0.4.0-rc4
+(cd /tmp/physical-witness-004 && bash ./REPRODUCE_OTDB_APW_RELEASE_004.sh)
 
 # Benchtop 005 exploratory checks
 (cd experiments/benchtop-005 && bash VERIFY_CANDIDATE.sh)
