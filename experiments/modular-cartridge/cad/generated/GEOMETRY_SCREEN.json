@@ -1,6 +1,12 @@
 {
   "geometry_screen_pass": true,
   "checks": {
+    "all_dimensions_positive_finite": true,
+    "tolerances_finite_nonnegative": true,
+    "gasket_and_hard_stop_positive_at_tolerance_corners": true,
+    "channel_in_gasket_window": true,
+    "mounting_and_alignment_holes_inside_plate_with_2mm_web": true,
+    "port_footprints_fit_channel_with_1mm_wall": true,
     "nominal_gasket_compression_15_to_35pct": true,
     "worst_case_gasket_compression_15_to_35pct": true,
     "positive_channel_separation_mm": true,

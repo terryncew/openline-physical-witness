@@ -39,6 +39,41 @@ def screen(p: Cartridge) -> dict:
 
     Not a measured seal or leak guarantee. Positive clearance means 2D layout only.
     """
+    # Treat malformed/unbounded candidate geometry as a rejected design, never as
+    # a divide-by-zero, empty-collection crash, or nonstandard NaN JSON receipt.
+    dimensions = (
+        p.outer_x_mm, p.outer_y_mm, p.base_thickness_mm, p.lid_thickness_mm,
+        p.channel_length_mm, p.channel_width_mm, p.channel_lid_depth_mm,
+        p.channel_pitch_mm, p.gasket_window_length_mm, p.gasket_window_width_mm,
+        p.gasket_nominal_mm, p.hard_stop_nominal_mm, p.coupon_length_mm,
+        p.coupon_width_mm, p.coupon_pocket_depth_mm, p.port_diameter_mm,
+        p.bolt_clearance_mm,
+    )
+    tolerances=(p.gasket_tol_mm,p.stop_tol_mm)
+    pairs=tuple(p.bolt_locations)+tuple(p.alignment_locations)
+    numeric_ok = (
+        all(isinstance(x,(int,float)) and math.isfinite(x) and x>0 for x in dimensions)
+        and all(isinstance(x,(int,float)) and math.isfinite(x) and x>=0 for x in tolerances)
+        and len(p.channels)==3 and len(p.bolt_locations)>=4
+        and len(p.alignment_locations)>=2
+        and all(isinstance(y,(int,float)) and math.isfinite(y) for y in p.channels)
+        and all(isinstance(loc,(tuple,list)) and len(loc)==2
+                and all(isinstance(v,(int,float)) and math.isfinite(v) for v in loc)
+                for loc in pairs)
+        and p.gasket_nominal_mm > p.gasket_tol_mm
+        and p.hard_stop_nominal_mm > p.stop_tol_mm
+    )
+    if not numeric_ok:
+        return {
+            "geometry_screen_pass":False,
+            "checks":{"input_finite_positive_and_topology_valid":False},
+            "gasket_crush_fraction_min":None,
+            "gasket_crush_fraction_max":None,
+            "gasket_crush_fraction_nominal":None,
+            "gasket_land_between_channels_mm":None,
+            "cautions":["Malformed or out-of-range geometry rejected before evaluation.",
+                        "No physical pressure, seal, chemical or fabrication approval."],
+        }
     lows=[]
     for thick in (p.gasket_nominal_mm-p.gasket_tol_mm,p.gasket_nominal_mm+p.gasket_tol_mm):
         for stop in (p.hard_stop_nominal_mm-p.stop_tol_mm,p.hard_stop_nominal_mm+p.stop_tol_mm):
@@ -52,8 +87,51 @@ def screen(p: Cartridge) -> dict:
             if math.hypot(dx,dy)<r+1.0: return False
         return True
     all_holes_avoid_channels=all(hole_avoids_channel(x,y,p.bolt_clearance_mm/2) for x,y in p.bolt_locations) and all(hole_avoids_channel(x,y,1.5) for x,y in p.alignment_locations)
-    # Distance to horizontal limits; sign checks only, NOT full hole-vs-window collision checking
+    # Independent planar-envelope proof obligations. These guard parameterized CAD
+    # configurations that can pass the nominal gasket-compression tests even when
+    # ports/bolts/coupons cannot physically exist in the plate.
+    dims = (p.outer_x_mm, p.outer_y_mm, p.base_thickness_mm,
+            p.lid_thickness_mm, p.channel_length_mm, p.channel_width_mm,
+            p.channel_lid_depth_mm, p.channel_pitch_mm,
+            p.gasket_window_length_mm, p.gasket_window_width_mm,
+            p.gasket_nominal_mm, p.hard_stop_nominal_mm,
+            p.coupon_length_mm, p.coupon_width_mm, p.coupon_pocket_depth_mm,
+            p.port_diameter_mm, p.bolt_clearance_mm)
+    tolerances = (p.gasket_tol_mm, p.stop_tol_mm)
+    dimensions_positive_finite = all(math.isfinite(float(v)) and v > 0 for v in dims)
+    tolerances_finite_nonnegative = all(math.isfinite(float(v)) and v >= 0 for v in tolerances)
+    # For the review geometry the gasket cavity must enclose the milled channel
+    # and the pressure-facing port footprints; this does not prove sealing.
+    channel_in_gasket_window = (p.channel_length_mm <= p.gasket_window_length_mm
+                                and p.channel_width_mm <= p.gasket_window_width_mm)
+    all_holes_within_plate = all(
+        math.isfinite(float(x)) and math.isfinite(float(y))
+        and abs(x) + rad + 2.0 <= p.outer_x_mm/2
+        and abs(y) + rad + 2.0 <= p.outer_y_mm/2
+        for x,y,rad in (
+            [(x,y,p.bolt_clearance_mm/2) for x,y in p.bolt_locations]
+            + [(x,y,1.5) for x,y in p.alignment_locations]
+        )
+    )
+    # The two end ports must fit within their channel footprint including
+    # their nominal radius; the geometry is symmetric about x=0.
+    port_footprint_inside_channel = (
+        p.port_diameter_mm + 2.0 <= p.channel_width_mm
+        and (p.channel_length_mm/2 - 3.0) + p.port_diameter_mm/2
+          <= p.channel_length_mm/2 - 1.0
+        and p.channel_length_mm > 2.0 * (3.0 + p.port_diameter_mm/2)
+    )
+    # Distance to plate limits; the original checker lacked any mounting-hole
+    # envelope test and permitted negative/zero dimensions.
     rules={
+        "all_dimensions_positive_finite": dimensions_positive_finite,
+        "tolerances_finite_nonnegative": tolerances_finite_nonnegative,
+        "gasket_and_hard_stop_positive_at_tolerance_corners":
+            p.gasket_nominal_mm > p.gasket_tol_mm
+            and p.hard_stop_nominal_mm > p.stop_tol_mm,
+        "channel_in_gasket_window":channel_in_gasket_window,
+        "mounting_and_alignment_holes_inside_plate_with_2mm_web":all_holes_within_plate,
+        "port_footprints_fit_channel_with_1mm_wall":port_footprint_inside_channel,
         "nominal_gasket_compression_15_to_35pct":0.15 <= (p.gasket_nominal_mm-p.hard_stop_nominal_mm)/p.gasket_nominal_mm <= 0.35,
         "worst_case_gasket_compression_15_to_35pct":min(lows)>=0.15 and max(lows)<=0.35,
         "positive_channel_separation_mm":channel_gap>=5.0,
