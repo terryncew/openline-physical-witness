@@ -1,53 +1,59 @@
-# OpenLine Sensors — Data-Center Water Audit (public research candidate)
+# OpenLine Sensors — Data-Center Water Audit (public research candidate 0.2.1)
 
 **Free, offline, read-only software. No API key, cloud account, paid dependency, or hardware needed.**
 
-This tool helps engineers, researchers, journalists, and community reviewers distinguish **measured data-center water use** from modeled scenarios. It is not a physical sensor, control system, certified water-saving product, or proof that OpenLine saves water.
+This tool helps engineers, researchers, journalists, and community reviewers distinguish **measured data-center water use** from modeled scenarios, convert and validate real utility/BMS exports, and separate cooling-plant design changes from sensor claims. It is not a physical sensor, control system, certified water-saving product, or proof that OpenLine saves water.
 
-### Use it
+### Three Water Boundaries (Do Not Conflate Them)
 
-With Python 3.10+:
+1. **Technology Cooling System (TCS — Rack/CDU Closed Loop)**: Circulates treated water or propylene-glycol (`PG25`) between server cold plates and a Coolant Distribution Unit ([OCP Cooling Environments](https://www.opencompute.org/projects/cooling-environments/)). Because the TCS loop is closed, its circulation rate (e.g., $1.5\text{ L/min per kW}$) is **not** water consumption.
+2. **Facility Water System (FWS — Cooling Tower / Adiabatic / Hybrid Heat Rejection)**: Rejects facility heat to the atmosphere. Cooling towers withdraw **makeup water** ($M$) to replace **evaporated water** ($E$, consumptive loss to air), **drift** ($D$), and **blowdown** ($B$, mineral-concentrated wastewater discharge). At steady state with Cycles of Concentration $C > 1$:
+   $$M = E \frac{C}{C - 1}, \qquad B = \frac{E}{C - 1} - D$$
+   Per [Zenodo DOI 10.5281/zenodo.23246001](https://zenodo.org/doi/10.5281/zenodo.23246001), drift leaves at circulating concentration and displaces blowdown one-for-one.
+3. **Electricity Supply (Indirect Source Water)**: Thermoelectric power plants evaporate water to generate the electricity used by both **IT servers** and **cooling equipment** ([Shehabi et al., 2024 LBNL Report](https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report); [Guidi & Dominici, Aug 2026](https://www.researchgate.net/publication/408326368_The_hidden_water_geography_of_US_hyperscale_data_centers_in_the_AI_era)). Switching from evaporative cooling to dry cooling cuts onsite water ($M$) but can increase cooling electricity and upstream river/aquifer water consumption depending on the regional grid's water intensity ($\text{EWIF}$, $\text{L/kWh}$).
+
+### One-Command Reproduction & Usage
+
+With Python 3.10+ (standard library only):
 
 ```sh
-python3 water_audit.py audit data/constructed_example.csv
+python3 -m unittest discover -s tests -v && python3 -O -m unittest discover -s tests -v
 python3 water_audit.py audit data/constructed_example.csv --grid-l-per-kwh 1.5
+python3 water_audit.py audit data/newcomer_utility_export_gal.csv --map timestamp_utc=interval_start_utc,duration_h=hours,it_kw=it_load_mw,cooling_kw=cooling_load_mw,makeup_l=tower_makeup_gal,blowdown_l=tower_blowdown_gal,reclaimed_l=reclaimed_makeup_gal --water-unit gal --power-unit mw --grid-l-per-kwh 1.65 --grid-range 0.18,1.65,2.40
 python3 water_audit.py scenario data/constructed_scenarios.json
-python3 -m unittest discover -s tests -v
+python3 water_audit.py compete
+python3 water_audit.py hardware-matrix
 ```
 
-The included CSV and JSON are **fully constructed**, not measured from any data center. Input fields for `audit`:
+The included CSV and JSON fixtures are **explicitly constructed illustrations**, not measurements from a live data center.
 
-| Field | Unit | Required evidence |
+| Field | Default Unit (`--water-unit` / `--power-unit`) | Required evidence & fail-closed checks |
 | --- | --- | --- |
-| timestamp_utc | ISO 8601 UTC timestamp | monotonically increasing |
-| duration_h | hours per measurement interval | 0 < h ≤ 24 |
-| it_kw | average IT power | strictly positive |
-| cooling_kw | average cooling electricity | nonnegative |
-| makeup_l | metered freshwater / nonpotable makeup volume | nonnegative |
-| blowdown_l | metered wastewater discharge from tower | nonnegative, ≤ makeup |
+| `timestamp_utc` | ISO 8601 UTC timestamp | Strictly increasing, timezone-aware |
+| `duration_h` | hours (`(0, 24]`) | Non-overlapping intervals; gaps tracked in `uncovered_gap_hours_between_rows` |
+| `it_kw` | `kw` (or `mw`, `w`) | Strictly positive finite number (booleans/formulas rejected) |
+| `cooling_kw` | `kw` (or `mw`, `w`) | Nonnegative finite number |
+| `makeup_l` | `l` (or `gal`, `m3`, `kl`, `ccf`) | Nonnegative finite number |
+| `blowdown_l` | `l` (or `gal`, `m3`, `kl`, `ccf`) | Nonnegative finite number, $\le \text{makeup\_l}$ |
+| `reclaimed_l` *(optional)* | `l` (or `gal`, `m3`, `kl`, `ccf`) | Nonnegative finite number, $\le \text{makeup\_l}$; separates potable vs. non-potable intake |
 
-Use *measured* interval totals. `site_wue_makeup_l_per_it_kwh` = metered makeup / IT kWh. `makeup - blowdown` is only a **rough proxy**, not verified actual consumptive use: tank inventory changes, drift, leakage, reuse, and unmetered discharges may break the identity. Grid-water intensity is an explicit **user-supplied scenario**; the tool does not know your grid mix.
+### What `water_audit.py` Checks
 
-The scenario calculator makes assumptions visible. For cooling-tower evaporation E and concentration cycles C>1, a simplified steady-state relation gives M = E*C/(C-1) and blowdown B = E/(C-1), assuming negligible drift and stable inventory. **Dry cooling share, cycles of concentration, and heat rejection technology are engineering choices, not outcomes of sensor software.** Its environmental results are illustrative, with no thermodynamic/thermal-safety certification or chemistry safety model.
+- **Observed Interval Audit (`audit`)**: Computes metered site WUE (`site_makeup_l / it_kwh`), potable vs. reclaimed withdrawal share, observed PUE, exact covered window end (`covered_window_end_utc`), and **First-Law thermodynamic & mass-balance anomalies** (flagging intervals where $(M-B)/Q_{\text{rejected,kWh}} > 1.55\text{ L/kWh}_{\text{th}}$ due to basin leaks/overflow/meter faults, or where implied $M/B$ indicates scaling risk $>10$ or stuck blowdown $<1.5$).
+- **Orthogonal Scenario Attribution (`scenario`)**: Decomposes modeled water differences into `dry_cooling_plant_attributed_delta_l`, `coc_chemistry_attributed_delta_l`, `evap_coeff_attributed_delta_l`, and `sensor_only_attributable_delta_l` (`0.0` when physical heat-rejection settings match), plus the exact grid water intensity crossover (`crossover_grid_ewif_l_per_kwh_where_energy_penalty_cancels_site_saving`).
+- **Matched-Plant Sensor Competition (`compete`)**: Compares passive model-based FDD (`Incumbent_B_Competent_Passive_Energy_Balance_FDD`) against active perturbation (`Candidate_C`) and COTS reference sensing (`Candidate_D`) on identical plant hardware. Shows that **competent passive FDD ties active/reference sensing on `100.0%` of normal, single-sensor-drift, and unconfounded-fouling trials**, while active/reference sensing only changes the diagnosis under simultaneous collinear multi-sensor drift + bypass/fouling confounding (a computational result, unvalidated in the field).
 
-### Boundaries and failure modes
+### Independent adversarial recheck (0.2.1)
 
-- Read-only outputs: the tool neither connects to BMS/CDU systems nor changes any setpoints.
-- No measured water savings or independent facility pilot; no physical prototype and no measured cold-plate diagnostic advantage.
-- Reported modeled ~70% site makeup reduction from the earlier private Sensors 002 comparison was primarily due to changes in cooling plant design, not a verified advantage of OpenLine. A matched hardware/sensor comparison produced zero additional modeled water savings.
-- Site makeup (withdrawals) and source-electricity water (regional scenario) are **different accounting boundaries**; don't relabel either as total water consumption.
-- No independent guarantee of water chemistry, GPU thermal headroom, safe control, tariff, carbon, or regional watershed impact.
-- This is a research and public-accountability starting point. Bring actual facility data, independently verify units and meters, test a strong conventional baseline, and submit corrections.
+The 0.2 release candidate contained two research-validation defects. It accepted an evaporation scenario above the tool's own theoretical latent-heat ceiling and, in the weakest simulated benchmark arm, used a hidden fault label when constructing its classification. Both were corrected and covered by tests. **The whole matched-plant competition is still a constructed, builder-visible experiment, not a blinded independent evaluation or field measurement.** Its 100% figures must not be reported as deployed accuracy.
 
-### What would change the verdict
+### Prior Work, Licensed References & Public Invitation
 
-A controlled before/after or matched-period shadow-mode study showing a *new, useful measurement-informed decision* that reduces **verified net water consumption** without unacceptable energy, equipment or reliability penalty. A qualified facility owner must authorize any operational experiment.
+- [Berkeley Lab, 2024 U.S. Data Center Energy Usage Report (LBNL-2001637)](https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report)
+- [Guidi & Dominici (Aug 2026), The Hidden Water Geography of U.S. Hyperscale Data Centers in the AI Era](https://www.researchgate.net/publication/408326368_The_hidden_water_geography_of_US_hyperscale_data_centers_in_the_AI_era)
+- [Lee et al. (Nov 12, 2026), Embedded Flexible MEMS Microsensor in a Liquid-Cooling Cold Plate for AI Servers, *Micromachines* 17(11), 1312](https://www.mdpi.com/2072-666X/17/11/1312)
+- [LBNL Fault Detection and Diagnostics (FDD) Datasets (PMC10235024, CC BY 4.0)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10235024/)
+- [Measurement Standard for Large Computational Loads (Zenodo DOI: 10.5281/zenodo.23246001)](https://zenodo.org/doi/10.5281/zenodo.23246001)
+- [OpenLine Physical Witness Repository](https://github.com/terryncew/openline-physical-witness)
 
-### Prior work / evidence
-
-- [Berkeley Lab, 2024 US Data Center Energy Usage Report](https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report).
-- [Open Compute Project: Cooling Environments](https://www.opencompute.org/projects/cooling-environments/).
-- [Public OpenLine Sensors membrane/Physical Witness research](https://github.com/terryncew/openline-physical-witness).
-- Independent Source Audit 002 is retained privately; headline simulated savings are excluded from public performance claims.
-
-This research is provided without warranty and is **not for live cooling system or safety-critical operation**.
+We invite engineers and researchers to challenge these models, submit reproducible corrections, or test the tool on **legally shareable, public-domain or open-licensed** datasets. **Never post confidential facility telemetry, credentials, or proprietary customer records.** Provided without warranty under Apache License 2.0 and **not for live cooling system or safety-critical operation**.
