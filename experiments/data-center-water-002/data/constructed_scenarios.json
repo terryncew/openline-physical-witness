@@ -1,0 +1,6 @@
+{
+  "note": "FICTIONAL NUMBERS ONLY. Constructed illustration, no data center measured here.",
+  "shared": {"hours":8760, "rejected_heat_kw":1000, "it_kw":1000,"grid_l_per_kwh":1.5},
+  "baseline": {"dry_fraction":0.0,"cycles_of_concentration":3.5,"evap_l_per_kwh_rejected":1.4,"cooling_elec_kw":90},
+  "candidate": {"dry_fraction":0.5,"cycles_of_concentration":7,"evap_l_per_kwh_rejected":1.4,"cooling_elec_kw":100}
+}
