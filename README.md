@@ -6,10 +6,13 @@
 
 **Current status — November 2026:** The original sensor design and model are reproducible computational research; two later supplements explore a cheaper first benchtop experiment and a potential remedy for reference contamination. **No wafer, PCB, sensor coupon or wet-loop prototype has been built or measured.** None of these files should be used to control water-treatment equipment or to order hardware without independent engineering qualification.
 
+**New public tool — [Data-Center Water Audit 0.2.1](experiments/data-center-water-002/README.md):** A free, offline Python utility to audit water and electricity readings, identify accounting anomalies, and compare transparently constructed cooling scenarios. [Run the code](experiments/data-center-water-002/README.md) · [Challenge the evidence](experiments/data-center-water-002/CHALLENGE.md). **No measured water savings, physical sensor, or live facility controls.**
+
 ## Start here: what is available today
 
 | Evidence level | What is public | What remains unproven |
 | --- | --- | --- |
+| [Water Audit 0.2.1 — Data-center water & energy](experiments/data-center-water-002/README.md) | Free local CSV/units/energy-water audit with example data, scenario and matched-plant checks; [public challenge](experiments/data-center-water-002/CHALLENGE.md) | Actual water savings, physical sensor benefits, real facility validation |
 | [004 — Original computational release](https://github.com/terryncew/openline-physical-witness/releases/tag/v0.4.0-rc4) | Reproducible synthetic models, competing baselines, design files and falsification protocol; frozen release tag | Actual sensor performance, native KiCad and foundry checks |
 | [005 — Benchtop feasibility study](experiments/benchtop-005/README.md) | A candidate flow-cell experiment using open impedance hardware, host-tested lock-in math and reference checks, parts/model review | Qualified AD5941 electronics, acquisition drivers, assembled equipment, vendor-confirmed cost and measured data |
 | [006 — Reference-contamination challenge](experiments/reference-006/README.md) | Three-arm observability model, host-tested fail-closed witness, [functional diagram](experiments/reference-006/design/three_arm_concept.svg), 48-pin datasheet transcription and physical lab protocol | An actually clean protected guard, independent analogue acquisition, hardware reliability and demonstrated fault detection |
