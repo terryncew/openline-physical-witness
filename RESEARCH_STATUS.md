@@ -2,6 +2,10 @@
 
 **Last consolidated:** November 2026. **Scientific status:** computational research + host-tested exploratory extensions; **physical readiness: HOLD**.
 
+## New production-bridge review (007)
+
+[Modular wet-side cartridge 007](experiments/modular-cartridge/README.md) tests a lower-capital design route: reusable dry electronics with replaceable S/R/G wet cartridges, a parametric clamshell fixture, tolerance corner tests and a cost-threshold calculator. The original 004/005/006 research remains intact. Code and CAD review checks pass, but no leak, corrosion, thermal sensitivity, independent guard cleanliness, assembly, field savings or purchase quote has been measured. **Production readiness remains HOLD.**
+
 ## What question does this project investigate?
 
 Can a compact combination of thermal-wave and electrical-impedance measurements distinguish early mineral deposition on water-treatment membranes from dissolved-salt concentration changes, temperature and flow disturbances? Could an independently verified protected reference reveal reference-arm fouling before it corrupts that estimate? The potential water, energy and equipment benefits are conditional on physical experiments and cost engineering; this repo does not claim realized savings.

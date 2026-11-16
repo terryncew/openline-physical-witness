@@ -11,6 +11,7 @@
 | [004 — Original computational release](https://github.com/terryncew/openline-physical-witness/releases/tag/v0.4.0-rc4) | Reproducible synthetic models, competing baselines, design files and falsification protocol; frozen release tag | Actual sensor performance, native KiCad and foundry checks |
 | [005 — Benchtop feasibility study](experiments/benchtop-005/README.md) | A candidate flow-cell experiment using open impedance hardware, host-tested lock-in math and reference checks, parts/model review | Qualified AD5941 electronics, acquisition drivers, assembled equipment, vendor-confirmed cost and measured data |
 | [006 — Reference-contamination challenge](experiments/reference-006/README.md) | Three-arm observability model, host-tested fail-closed witness, [functional diagram](experiments/reference-006/design/three_arm_concept.svg), 48-pin datasheet transcription and physical lab protocol | An actually clean protected guard, independent analogue acquisition, hardware reliability and demonstrated fault detection |
+| [007 — Modular wet-side cartridge](experiments/modular-cartridge/README.md) | Parametric three-channel fixture, geometric tolerance screen, lab material challenges, hypothetical cost gates | Sealing, wet corrosion, thermal separation, reference matching, vendor pricing, manufacturing, physical accuracy |
 
 The **NC5 failure remains open:** in the original *synthetic* partial-reference-fouling test, the proposed design produced **71.17% mean thickness error without an alarm**. A conventional calibrated multisensor approach did better. The 006 design adds an additional observation that *might* reveal reference contamination, but it has **not** been proven on real sensors. Both the failures and the cases where conventional methods win remain in the source.
 
@@ -23,8 +24,11 @@ The **NC5 failure remains open:** in the original *synthetic* partial-reference-
 **Reproduce each independent artifact:**
 
 ```bash
-# Original computational release (Python 3.11 + pinned requirements + GCC)
-bash ./REPRODUCE_OTDB_APW_RELEASE_004.sh
+# Original 004 checks run from frozen source: the evolving main README has new research links
+# Download/extract the v0.4.0-rc4 release ZIP, or check out the immutable tag:
+git fetch --tags
+git worktree add /tmp/physical-witness-004 v0.4.0-rc4
+(cd /tmp/physical-witness-004 && bash ./REPRODUCE_OTDB_APW_RELEASE_004.sh)
 
 # Benchtop 005 exploratory checks
 (cd experiments/benchtop-005 && bash VERIFY_CANDIDATE.sh)

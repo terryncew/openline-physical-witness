@@ -1,4 +1,4 @@
-name: Reproduce computational research
+name: Reproduce original computational research from frozen tag
 on:
   push:
   pull_request:
@@ -9,10 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install pinned Python dependencies
-        run: python -m pip install -r requirements.txt
-      - name: Reproduce verified source and scientific figures
+      - name: Check out immutable 004 source
+        run: |
+          git worktree add /tmp/physical-witness-004 v0.4.0-rc4
+          test "$(git -C /tmp/physical-witness-004 rev-parse HEAD)" = "1cd5f5d5184d3fff2bdc868c9eebd772f9636c8e"
+      - name: Install release-pinned scientific dependencies
+        run: python -m pip install -r /tmp/physical-witness-004/requirements.txt
+      - name: Run original 004 reproduction and source manifest checks
+        working-directory: /tmp/physical-witness-004
         run: bash ./REPRODUCE_OTDB_APW_RELEASE_004.sh

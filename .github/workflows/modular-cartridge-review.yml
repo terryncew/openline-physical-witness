@@ -1,0 +1,20 @@
+name: Modular wet-side cartridge 007 research-only checks
+on:
+  push:
+    paths:
+      - 'experiments/modular-cartridge/**'
+      - '.github/workflows/modular-cartridge-review.yml'
+  pull_request:
+    paths:
+      - 'experiments/modular-cartridge/**'
+      - '.github/workflows/modular-cartridge-review.yml'
+jobs:
+  host-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source integrity, geometric screen, economics and intentional HOLD
+        run: cd experiments/modular-cartridge && bash VERIFY_RESEARCH_ONLY.sh

@@ -1,0 +1,23 @@
+{
+  "geometry_screen_pass": true,
+  "checks": {
+    "nominal_gasket_compression_15_to_35pct": true,
+    "worst_case_gasket_compression_15_to_35pct": true,
+    "positive_channel_separation_mm": true,
+    "window_fits_cartridge": true,
+    "coupon_inside_window": true,
+    "port_inside_channel": true,
+    "hole_edges_clear_of_channel_windows_by_1mm": true,
+    "three_distinct_channels": true
+  },
+  "gasket_crush_fraction_min": 0.157895,
+  "gasket_crush_fraction_max": 0.333333,
+  "gasket_crush_fraction_nominal": 0.25,
+  "gasket_land_between_channels_mm": 10.0,
+  "cautions": [
+    "Not a seal qualification. Tolerance bands are engineer assumptions, not supplier guarantees.",
+    "Hard stops must be physically independent of gasket relaxation.",
+    "Creep, thermal expansion, membrane swelling, fluid pressure and chemical compatibility unmeasured.",
+    "Guard branch fluid chemistry/hydrodynamics cannot be assumed equal to sense branch."
+  ]
+}
