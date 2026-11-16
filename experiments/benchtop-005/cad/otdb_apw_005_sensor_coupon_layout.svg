@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f8fafc"/>
+  <text x="30" y="36" font-family="monospace" font-size="18" font-weight="bold" fill="#0f172a">
+    OTDB-APW 005: Split-Channel Acrylic Flow Cell &amp; Flush Sensor Coupon (40.0 x 25.0 mm)
+  </text>
+  <!-- Acrylic Block Outline -->
+  <rect x="60" y="60" width="640" height="360" rx="12" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+  <!-- Sense Channel (Top) -->
+  <rect x="120" y="105" width="520" height="90" rx="8" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+  <text x="135" y="130" font-family="monospace" font-size="13" font-weight="bold" fill="#0369a1">
+    CHANNEL A: ACTIVE FOULING SENSE STREAM (CaCl2 + NaHCO3 Supersaturated, 0.5 mm x 4.0 mm x 25.0 mm)
+  </text>
+  <!-- Sense RTD (PTS0603) -->
+  <rect x="260" y="142" width="48" height="26" fill="#f59e0b" stroke="#78350f" stroke-width="2"/>
+  <text x="240" y="185" font-family="monospace" font-size="11" fill="#78350f">RTD_SENSE (PTS0603 Pt100)</text>
+  <!-- Sense IDE -->
+  <rect x="430" y="138" width="80" height="34" fill="#eab308" stroke="#713f12" stroke-width="2"/>
+  <text x="415" y="185" font-family="monospace" font-size="11" fill="#713f12">IDE_SENSE (ENIG / MicruX Pt)</text>
+
+  <!-- Reference Channel (Bottom) -->
+  <rect x="120" y="255" width="520" height="90" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="135" y="280" font-family="monospace" font-size="13" font-weight="bold" fill="#15803d">
+    CHANNEL B: MATCHED NON-SCALING REFERENCE STREAM (Ionic-Matched NaCl, Monitored by U2B + IDE_REF)
+  </text>
+  <!-- Ref RTD (PTS0603) -->
+  <rect x="260" y="292" width="48" height="26" fill="#f59e0b" stroke="#78350f" stroke-width="2"/>
+  <text x="240" y="335" font-family="monospace" font-size="11" fill="#78350f">RTD_REF (PTS0603 Pt100)</text>
+  <!-- Ref IDE -->
+  <rect x="430" y="288" width="80" height="34" fill="#eab308" stroke="#713f12" stroke-width="2"/>
+  <text x="415" y="335" font-family="monospace" font-size="11" fill="#713f12">IDE_REF (ENIG / MicruX Pt)</text>
+
+  <!-- Annotations -->
+  <text x="60" y="450" font-family="monospace" font-size="12" fill="#334155">
+    Gasket: 0.50 mm Viton Laser-Cut Sheet | RTD Epoxied Flush with Loctite Stycast 2850FT (Glass-Passivated Face Wetted)
+  </text>
+  <text x="60" y="472" font-family="monospace" font-size="12" fill="#334155">
+    Removable Gravimetric/Profilometric Witness Coupon: 10.0 x 6.0 x 0.75 mm Borosilicate/Pt Coupon Upstream of IDE_SENSE
+  </text>
+</svg>

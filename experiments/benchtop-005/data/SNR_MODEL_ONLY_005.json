@@ -1,0 +1,240 @@
+{
+  "document_id": "SNR_AND_REFERENCE_CONTAMINATION_FALSIFIER_005",
+  "transducer_part": "Vishay Beyschlag PTS060301B100RP100 (100 Ohm Pt100 0603 SMD RTD on Alumina with Glass Passivation)",
+  "bridge_drive_parameters": {
+    "i_branch_rms_ma": 12.0,
+    "i_bridge_total_rms_ma": 24.0,
+    "p_element_avg_mw": 14.4,
+    "f_1w_primary_hz": 1.0,
+    "f_3w_primary_hz": 3.0,
+    "f_1w_fast_hz": 8.0,
+    "f_3w_fast_hz": 24.0,
+    "inamp_gain": 100.0,
+    "lockin_integration_window_s": 10.0,
+    "enbw_hz": 0.05
+  },
+  "sensitivity_and_noise_summary": {
+    "sensitivity_preamp_1hz_uv_per_um": 1.7802,
+    "sensitivity_adc_g100_1hz_mv_per_um": 0.178,
+    "sensitivity_preamp_8hz_uv_per_um": 1.208,
+    "sensitivity_adc_g100_8hz_mv_per_um": 0.1208,
+    "electronic_noise_rti_1hz_uv_rms": 0.00096,
+    "total_hydrodynamic_plus_electronic_noise_rti_1hz_uv_rms": 0.11,
+    "total_hydrodynamic_plus_electronic_noise_rti_8hz_uv_rms": 0.068,
+    "limit_of_detection_3sigma_1hz_um": 0.185,
+    "limit_of_quantification_10sigma_1hz_um": 0.618,
+    "limit_of_detection_3sigma_8hz_um": 0.169,
+    "limit_of_quantification_10sigma_8hz_um": 0.563
+  },
+  "snr_vs_thickness_table": [
+    {
+      "caco3_thickness_um": 0.5,
+      "dv3w_rti_1hz_uv_rms": 0.8901,
+      "dv3w_adc_input_g100_1hz_mv_rms": 0.089,
+      "snr_1hz_linear": 8.09,
+      "snr_1hz_db": 18.16,
+      "dv3w_rti_8hz_uv_rms": 0.604,
+      "dv3w_adc_input_g100_8hz_mv_rms": 0.06,
+      "snr_8hz_linear": 8.88,
+      "snr_8hz_db": 18.97,
+      "exceeds_3sigma_detection_floor": true,
+      "exceeds_10sigma_quantification_floor": false
+    },
+    {
+      "caco3_thickness_um": 1.0,
+      "dv3w_rti_1hz_uv_rms": 1.7802,
+      "dv3w_adc_input_g100_1hz_mv_rms": 0.178,
+      "snr_1hz_linear": 16.18,
+      "snr_1hz_db": 24.18,
+      "dv3w_rti_8hz_uv_rms": 1.208,
+      "dv3w_adc_input_g100_8hz_mv_rms": 0.12,
+      "snr_8hz_linear": 17.76,
+      "snr_8hz_db": 24.99,
+      "exceeds_3sigma_detection_floor": true,
+      "exceeds_10sigma_quantification_floor": true
+    },
+    {
+      "caco3_thickness_um": 2.0,
+      "dv3w_rti_1hz_uv_rms": 3.5604,
+      "dv3w_adc_input_g100_1hz_mv_rms": 0.356,
+      "snr_1hz_linear": 32.37,
+      "snr_1hz_db": 30.2,
+      "dv3w_rti_8hz_uv_rms": 2.416,
+      "dv3w_adc_input_g100_8hz_mv_rms": 0.24,
+      "snr_8hz_linear": 35.53,
+      "snr_8hz_db": 31.01,
+      "exceeds_3sigma_detection_floor": true,
+      "exceeds_10sigma_quantification_floor": true
+    },
+    {
+      "caco3_thickness_um": 5.0,
+      "dv3w_rti_1hz_uv_rms": 8.9009,
+      "dv3w_adc_input_g100_1hz_mv_rms": 0.8901,
+      "snr_1hz_linear": 80.91,
+      "snr_1hz_db": 38.16,
+      "dv3w_rti_8hz_uv_rms": 6.0399,
+      "dv3w_adc_input_g100_8hz_mv_rms": 0.6,
+      "snr_8hz_linear": 88.82,
+      "snr_8hz_db": 38.97,
+      "exceeds_3sigma_detection_floor": true,
+      "exceeds_10sigma_quantification_floor": true
+    },
+    {
+      "caco3_thickness_um": 10.0,
+      "dv3w_rti_1hz_uv_rms": 17.8018,
+      "dv3w_adc_input_g100_1hz_mv_rms": 1.7802,
+      "snr_1hz_linear": 161.83,
+      "snr_1hz_db": 44.18,
+      "dv3w_rti_8hz_uv_rms": 12.0798,
+      "dv3w_adc_input_g100_8hz_mv_rms": 1.21,
+      "snr_8hz_linear": 177.63,
+      "snr_8hz_db": 44.99,
+      "exceeds_3sigma_detection_floor": true,
+      "exceeds_10sigma_quantification_floor": true
+    },
+    {
+      "caco3_thickness_um": 15.0,
+      "dv3w_rti_1hz_uv_rms": 26.7028,
+      "dv3w_adc_input_g100_1hz_mv_rms": 2.6703,
+      "snr_1hz_linear": 242.74,
+      "snr_1hz_db": 47.7,
+      "dv3w_rti_8hz_uv_rms": 18.1197,
+      "dv3w_adc_input_g100_8hz_mv_rms": 1.81,
+      "snr_8hz_linear": 266.45,
+      "snr_8hz_db": 48.51,
+      "exceeds_3sigma_detection_floor": true,
+      "exceeds_10sigma_quantification_floor": true
+    },
+    {
+      "caco3_thickness_um": 20.0,
+      "dv3w_rti_1hz_uv_rms": 35.6037,
+      "dv3w_adc_input_g100_1hz_mv_rms": 3.5604,
+      "snr_1hz_linear": 323.66,
+      "snr_1hz_db": 50.2,
+      "dv3w_rti_8hz_uv_rms": 24.1596,
+      "dv3w_adc_input_g100_8hz_mv_rms": 2.42,
+      "snr_8hz_linear": 355.26,
+      "snr_8hz_db": 51.01,
+      "exceeds_3sigma_detection_floor": true,
+      "exceeds_10sigma_quantification_floor": true
+    },
+    {
+      "caco3_thickness_um": 30.0,
+      "dv3w_rti_1hz_uv_rms": 53.4055,
+      "dv3w_adc_input_g100_1hz_mv_rms": 5.3406,
+      "snr_1hz_linear": 485.49,
+      "snr_1hz_db": 53.72,
+      "dv3w_rti_8hz_uv_rms": 36.2394,
+      "dv3w_adc_input_g100_8hz_mv_rms": 3.62,
+      "snr_8hz_linear": 532.9,
+      "snr_8hz_db": 54.53,
+      "exceeds_3sigma_detection_floor": true,
+      "exceeds_10sigma_quantification_floor": true
+    }
+  ],
+  "reference_contamination_hardware_falsifier": {
+    "hardware_witness_proposed": "Added U2B (second AD8421BRZ, G=100) measuring BRIDGE_MID_REF against a 2 ppm/K Susumu RG1608 fixed divider into AD5941 AIN2, plus TMUX1108 routing of IDE_REF into AD5941 EIS port.",
+    "u2b_single_ended_noise_rti_uv_rms": 0.34,
+    "u2b_3p5sigma_alarm_threshold_uv_rti": 1.19,
+    "minimum_detectable_reference_scale_thickness_um": 1.25,
+    "sub_micron_blind_spot_remains": true,
+    "operational_deployment_prohibition": "PROHIBITED without periodic clean-flush tare or mechanical isolation verification: while U2B + IDE_REF catches >=96% of reference contamination when d_f,ref >= 1.25 um (>=20% leak ratio), trace reference contamination below 1.0 um (2% to 10% leak ratio, 0.2 to 1.0 um on Ref RTD) produces single-ended 3w shifts below U2B's uncompensated convective noise floor (0.34 uV RTI), yielding only 1.0% to 48.0% detection. Autonomous operational deployment remains prohibited until physical dual-channel isolation is validated on the bench.",
+    "scenario_results": [
+      {
+        "scenario": "0pct_Clean_Reference",
+        "ref_to_sense_fouling_ratio": 0.0,
+        "mean_sense_thickness_um": 14.69,
+        "mean_ref_thickness_um": 0.0,
+        "trials": 100,
+        "hardware_u2b_plus_ideref_flagged_count": 1,
+        "detection_rate_pct": 1.0,
+        "uncorrected_differential_mae_pct": 0.34
+      },
+      {
+        "scenario": "2pct_Micro_Leak_Reference",
+        "ref_to_sense_fouling_ratio": 0.02,
+        "mean_sense_thickness_um": 15.17,
+        "mean_ref_thickness_um": 0.3,
+        "trials": 100,
+        "hardware_u2b_plus_ideref_flagged_count": 3,
+        "detection_rate_pct": 3.0,
+        "uncorrected_differential_mae_pct": 1.97
+      },
+      {
+        "scenario": "5pct_Trace_Leak_Reference",
+        "ref_to_sense_fouling_ratio": 0.05,
+        "mean_sense_thickness_um": 14.88,
+        "mean_ref_thickness_um": 0.74,
+        "trials": 100,
+        "hardware_u2b_plus_ideref_flagged_count": 64,
+        "detection_rate_pct": 64.0,
+        "uncorrected_differential_mae_pct": 5.02
+      },
+      {
+        "scenario": "10pct_Minor_Leak_Reference",
+        "ref_to_sense_fouling_ratio": 0.1,
+        "mean_sense_thickness_um": 15.28,
+        "mean_ref_thickness_um": 1.53,
+        "trials": 100,
+        "hardware_u2b_plus_ideref_flagged_count": 100,
+        "detection_rate_pct": 100.0,
+        "uncorrected_differential_mae_pct": 9.98
+      },
+      {
+        "scenario": "20pct_Moderate_Leak_Reference",
+        "ref_to_sense_fouling_ratio": 0.2,
+        "mean_sense_thickness_um": 15.1,
+        "mean_ref_thickness_um": 3.02,
+        "trials": 100,
+        "hardware_u2b_plus_ideref_flagged_count": 100,
+        "detection_rate_pct": 100.0,
+        "uncorrected_differential_mae_pct": 19.94
+      },
+      {
+        "scenario": "35pct_Partial_Bypass_Reference",
+        "ref_to_sense_fouling_ratio": 0.35,
+        "mean_sense_thickness_um": 15.32,
+        "mean_ref_thickness_um": 5.36,
+        "trials": 100,
+        "hardware_u2b_plus_ideref_flagged_count": 100,
+        "detection_rate_pct": 100.0,
+        "uncorrected_differential_mae_pct": 35.04
+      },
+      {
+        "scenario": "60pct_Severe_Bypass_Reference",
+        "ref_to_sense_fouling_ratio": 0.6,
+        "mean_sense_thickness_um": 14.79,
+        "mean_ref_thickness_um": 8.87,
+        "trials": 100,
+        "hardware_u2b_plus_ideref_flagged_count": 100,
+        "detection_rate_pct": 100.0,
+        "uncorrected_differential_mae_pct": 60.01
+      },
+      {
+        "scenario": "100pct_Symmetric_CommonMode_Failure",
+        "ref_to_sense_fouling_ratio": 1.0,
+        "mean_sense_thickness_um": 14.87,
+        "mean_ref_thickness_um": 14.87,
+        "trials": 100,
+        "hardware_u2b_plus_ideref_flagged_count": 100,
+        "detection_rate_pct": 100.0,
+        "uncorrected_differential_mae_pct": 99.99
+      }
+    ]
+  },
+  "benchtop_regime_comparison_predictions": {
+    "regime_1_single_salt_scaling_rmse_um": {
+      "hunstat2_eis_rtd_flow_baseline_rmse_um": 0.294,
+      "otdb_apw_005_3w_plus_eis_rmse_um": 0.572,
+      "winner": "HunStat2_EIS_RTD_Flow_Baseline (3w thermal adds convective variance without needed orthogonality when ionic composition is fixed)"
+    },
+    "regime_2_orthogonal_nacl_conductivity_confounder_rmse_um": {
+      "hunstat2_eis_rtd_flow_baseline_rmse_um": 3.044,
+      "otdb_apw_005_3w_plus_eis_rmse_um": 0.667,
+      "winner": "OTDB_APW_005_Active (3w solid-film phonon bottleneck is invariant to 10->20 mM NaCl bulk conductivity steps that confound EIS)"
+    },
+    "decisive_physical_falsifier_rule": "If across N >= 12 paired gravimetric/profilometric CaCO3 runs with a 10 mM -> 20 mM NaCl confounder step, adding the 3w thermal bridge fails to reduce thickness RMSE by at least 35% (p < 0.01) over HunStat2 4-frequency EIS + Pt100 RTD + flow sensing alone, REJECT the OTDB-APW thermal bridge complexity permanently."
+  },
+  "model_only_not_measured": true,
+  "data_qualification": "ASSUMED NOISE / HEAT-SPREAD / CONTROL DISTRIBUTIONS: not empirical confidence or reference fouling detection probabilities"
+}
