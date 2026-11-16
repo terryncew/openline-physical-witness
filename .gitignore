@@ -1,0 +1,13 @@
+# Local Python and generated artifacts; do not commit verification machine state.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+build_outputs/
+*.egg-info/
+dist/
+build/
+.DS_Store
+.env
+.env.*

@@ -1,0 +1,59 @@
+{
+  "database_unit_m": 1e-09,
+  "die_dimensions_um": [
+    3500.0,
+    3500.0
+  ],
+  "drc_rules_checked": {
+    "RULE_1_MIN_METAL_WIDTH_GE_10UM": {
+      "limit_um": 10.0,
+      "measured_um": 12.5,
+      "passed": true
+    },
+    "RULE_2_MIN_METAL_SPACING_GE_10UM": {
+      "limit_um": 10.0,
+      "measured_um": 12.5,
+      "passed": true
+    },
+    "RULE_3_ALD_PAD_ENCLOSURE_GE_10UM": {
+      "limit_um": 10.0,
+      "measured_um": 15.0,
+      "passed": true
+    },
+    "RULE_4_DICING_STREET_CLEARANCE_GE_80UM": {
+      "inside_boundary": true,
+      "limit_um": 80.0,
+      "passed": true
+    },
+    "RULE_5_BRIDGE_RESISTANCE_100_OHM_TARGET": {
+      "measured_ohm": 100.0,
+      "passed": true,
+      "target_ohm": 100.0
+    }
+  },
+  "foundry_qualification_note": "Geometry obeys public 10 um lithography + lift-off + ALD rules (compatible with Rogue Valley Microdevices 150mm custom MEMS flow and university nanofab contact lithography). Labeled ENGINEERING PROTOTYPE LAYOUT \u2014 requires foundry-specific reticle alignment keys before commercial mask tapeout.",
+  "gdsii_file_path": "artifacts/otdb_apw_rev_b.gds",
+  "gdsii_file_size_bytes": 9350,
+  "integrated_electrical_parameters": {
+    "ald_bilayer_stack": "30 nm thermal ALD Al2O3 + 30 nm thermal ALD HfO2 (60 nm total, eps_r_eff = 12.51)",
+    "ide_finger_gap_um": 12.5,
+    "ide_finger_width_um": 12.5,
+    "ide_total_sensing_fingers": 60,
+    "integrated_bridge_arm_r0_ohm": 100.0,
+    "meander_centerline_length_um": 2857.14,
+    "meander_squares": 142.857,
+    "meander_width_um": 20.0,
+    "pt_thickness_nm": 150.0,
+    "sheet_resistance_ohm_per_sq": 0.7,
+    "ti_adhesion_nm": 10.0
+  },
+  "layer_polygon_counts": {
+    "Layer_1": 4,
+    "Layer_2": 131,
+    "Layer_3": 7,
+    "Layer_4": 2
+  },
+  "schema": "openline.physical_invention_002.mems_gdsii_drc.v1",
+  "total_drc_violations": 0,
+  "total_gdsii_polygons": 144
+}

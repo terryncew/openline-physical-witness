@@ -1,0 +1,37 @@
+{
+  "body_material": "Semiconductor-Grade Virgin PEEK (VICTREX 450G, unreinforced, ultra-low extractables)",
+  "cip_cleaning_and_thermal_cycling_envelope": {
+    "burst_safety_pressure_bar": 24.0,
+    "chemical_cleaning_compatibility": "2% Citric Acid / HCl (pH 2.0) and 1% NaOH + Na4EDTA (pH 12.0) up to 60 C; HfO2 top-cap prevents Al2O3 alkaline etching",
+    "max_operating_pressure_bar": 6.0,
+    "qualified_temp_range_c": [
+      5.0,
+      85.0
+    ]
+  },
+  "duct_cross_section_mm": {
+    "height_mm": 1.0,
+    "hydraulic_diameter_mm": 1.6,
+    "width_mm": 4.0
+  },
+  "electrical_feedthrough": "7x Mill-Max 0906-1-15-20-75-14-11-0 Gold-Plated Spring-Loaded Pogo Pins landing on dry backside/peripheral bondpad shelf outside the FFKM O-ring wetted perimeter",
+  "fluid_ports": "1/4-28 UNF Flat-Bottom (Sensirion/IDEX standard) or 1/4-inch Swagelok PFA compression",
+  "mems_die_pocket_mm": {
+    "depth_mm": 0.5,
+    "flushness_tol_um": 5.0,
+    "length_mm": 3.52,
+    "width_mm": 3.52
+  },
+  "nominal_slip_stream_flow_rate_ml_min": 60.0,
+  "nominal_velocity_m_s": 0.25,
+  "outer_dimensions_mm": [
+    38.0,
+    24.0,
+    16.0
+  ],
+  "schema": "openline.physical_invention_002.mechanical_flow_cell_cad.v1",
+  "seal_material": "DuPont Kalrez 6375 / Perfluoroelastomer (FFKM) AS568-010 O-Ring (pH 1-14 CIP resistant)",
+  "stl_file_path": "artifacts/otdb_apw_peek_flow_cell.stl",
+  "stl_triangle_count": 96,
+  "wall_shear_stress_pa_at_0p25ms": 1.335
+}

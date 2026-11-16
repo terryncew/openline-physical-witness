@@ -1,0 +1,83 @@
+{
+  "native_kicad_cli_check": {
+    "honest_disclosure": "Native kicad-cli binary is not installed in this Linux container image and outbound network package installation is disabled. Programmatic S-expression pin-type matrix ERC and netlist verification passed (0 errors, 4/4 injected faults caught), while native kicad-cli execution remains an explicit host-workstation HOLD.",
+    "native_erc_status": "HOLD_NATIVE_KICAD_CLI_ABSENT",
+    "native_kicad_cli_available": false,
+    "native_kicad_cli_path": null,
+    "native_netlist_status": "HOLD_NATIVE_KICAD_CLI_ABSENT"
+  },
+  "negative_erc_fault_injection": {
+    "all_negative_erc_controls_passed": true,
+    "caught_output_to_output_short": true,
+    "caught_single_pin_dangling_net": true,
+    "caught_undriven_power_rail": true,
+    "caught_wired_no_connect_pin": true
+  },
+  "power_and_signal_path": {
+    "bom_summary_rev_d_usd": {
+      "complete_slip_stream_node_1k_usd": 348.0,
+      "modeled_5_unit_nanofab_pilot_usd": 9850.0,
+      "modeled_phase_1_total_validation_budget_usd": 11250.0,
+      "packaged_calibrated_probe_1k_usd": 74.5,
+      "raw_1k_bom_usd": 30.05
+    },
+    "power_rails": {
+      "adm8829_cp_out_v": -4.9325,
+      "adp7182_headroom_v": 2.4325,
+      "adp7182_vin_within_spec_below_minus_2p7v": true,
+      "minus_2v5_avss_ma": 3.65,
+      "plus_3v3_analog_ma": 15.11,
+      "plus_3v3_digital_ma": 17.8,
+      "total_5v_input_current_ma": 37.96,
+      "total_board_power_mw": 189.8
+    },
+    "signal_path": {
+      "aaf_cutoff_hz": 159154.94,
+      "ad5941_allowed_window_v": [
+        0.1,
+        1.92
+      ],
+      "adc_input_window_v": [
+        1.078,
+        1.122
+      ],
+      "bridge_null_lsb_uv": 1.9073,
+      "gain_at_36hz": 99.999997,
+      "ina_gain": 100.0,
+      "phase_shift_at_36hz_deg": -0.01296,
+      "zero_saturation_verified": true
+    },
+    "spice_netlist_relpath": "artifacts/otdb_apw_rev_d_full_signal_path.cir"
+  },
+  "schema": "openline.otdb_apw.release_004.gate2_electrical.v1",
+  "schematic_and_netlist": {
+    "bom_component_count": 39,
+    "electrical_net_count": 52,
+    "global_label_count": 197,
+    "junction_count": 197,
+    "library_pin_count": 140,
+    "library_pin_type_counts": {
+      "bidirectional": 7,
+      "input": 35,
+      "no_connect": 7,
+      "output": 22,
+      "passive": 26,
+      "power_in": 38,
+      "power_out": 5
+    },
+    "netlist_relpath": "artifacts/otdb_apw_afe_rev_d.net",
+    "no_connect_count": 7,
+    "placed_instance_pin_count": 204,
+    "schematic_relpath": "artifacts/otdb_apw_afe_rev_d.kicad_sch",
+    "symbol_count": 41,
+    "wire_count": 197
+  },
+  "strict_typed_erc": {
+    "checked_net_count": 52,
+    "erc_error_count": 0,
+    "erc_errors": [],
+    "erc_passed": true,
+    "erc_warning_count": 0,
+    "erc_warnings": []
+  }
+}

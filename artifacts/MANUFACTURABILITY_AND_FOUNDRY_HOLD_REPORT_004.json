@@ -1,0 +1,46 @@
+{
+  "declared_process_holds": [
+    {
+      "hold_id": "FOUNDRY_HOLD_1",
+      "requirement": "Shapely geometric checks verify min width (8.0 um >= 5.0 um) and min spacing (12.0 um >= 5.0 um), but official KLayout/Calibre foundry PDK DRC deck signoff is required prior to photomask ordering.",
+      "status": "HOLD_FOUNDRY_PDK_SIGNOFF_REQUIRED",
+      "subsystem": "4-Mask MEMS GDSII Layout (artifacts/otdb_apw_rev_b.gds)"
+    },
+    {
+      "hold_id": "FOUNDRY_HOLD_2",
+      "requirement": "20 nm Ti / 180 nm Pt e-beam evaporation and 400 C N2 anneal must verify alpha_Pt = 3.85e-3 K^-1 (+/-2%) and bridge pair \u0394R/R0 <= 0.25% across a 100 mm fused-silica wafer.",
+      "status": "HOLD_WAFER_LOT_QUALIFICATION",
+      "subsystem": "Ti/Pt Lift-Off & Post-Anneal TCR Matching"
+    },
+    {
+      "hold_id": "FOUNDRY_HOLD_3",
+      "requirement": "250 C ALD bilayer must achieve <0.05 pinholes/cm^2 and >500 MOhm DC shunt resistance in 50 mM NaCl over 60 days at 45 C.",
+      "status": "HOLD_WET_IMPEDANCE_LEAKAGE_SCREEN",
+      "subsystem": "30 nm Al2O3 / 30 nm HfO2 Thermal/Plasma ALD Bilayer Pinhole Density"
+    },
+    {
+      "hold_id": "FOUNDRY_HOLD_4",
+      "requirement": "BCl3/Cl2 + SF6 RIE pad opening must stop on the 180 nm Pt bond pads with <15 nm Pt loss so wirebond/pogo contact resistance stays <0.15 Ohm.",
+      "status": "HOLD_ETCH_STOP_VERIFICATION",
+      "subsystem": "RIE Pad Opening Over-Etch Control on Pt Bond Pads"
+    },
+    {
+      "hold_id": "FOUNDRY_HOLD_5",
+      "requirement": "5-axis CNC PEEK cell (Ra <= 0.8 um) with Parker 2-012 FKM O-ring must pass a 12.0 bar (1.5x 8.0 bar rating) 24-hour hydrostatic pressure hold with zero weepage.",
+      "status": "HOLD_HYDROSTATIC_BENCH_TEST",
+      "subsystem": "Virgin PEEK CNC Flow Cell & FKM O-Ring 12 Bar Hydrostatic Seal"
+    },
+    {
+      "hold_id": "FOUNDRY_HOLD_6",
+      "requirement": "Run native kicad-cli sch erc and PCB layout DRC on an engineering workstation with KiCad 7/8 installed before ordering 4-layer FR4 PCB prototypes.",
+      "status": "HOLD_NATIVE_KICAD_CLI_WORKSTATION_RUN",
+      "subsystem": "Native KiCad 7/8 CLI ERC & PCB Gerber Fabrication Signoff"
+    }
+  ],
+  "mems_geometric_drc_passed": true,
+  "mems_total_polygons": 144,
+  "overall_fabrication_gate": "HOLD_AWAITING_FOUNDRY_PDK_AND_WET_LAB_QUALIFICATION",
+  "peek_stl_triangles": 96,
+  "peek_stl_watertight": true,
+  "schema": "openline.otdb_apw.release_004.manufacturability_holds.v1"
+}

@@ -1,0 +1,43 @@
+{
+  "all_inheritance_and_boundary_checks_passed": true,
+  "capability_id": "orthogonal-thermo-electro-witness-v4",
+  "capability_sha256": "f459b29faf46eae89975f60ab9190ab2b67b6817abaf39f6a6a966ff7669094e",
+  "computational_cost_comparison": {
+    "break_even_cases_N_BE": 2,
+    "eval_reduction_factor": 13.7,
+    "scratch_without_inheritance_evals_per_case": 1480,
+    "worker_a_creation_and_qualification_evals": 1840,
+    "worker_b_with_inheritance_evals_per_case": 108
+  },
+  "documented_failed_transfer_case_b6_oil_emulsion": {
+    "intra_frame_admittance_std_pct": 28.5,
+    "status": "TRANSFER_FAILED_NON_STATIONARY_INTERFACE",
+    "witness_disposition": "ABSTAIN_NON_STATIONARY_EMULSION_OR_SLUG_FLOW_VIOLATES_LOCKIN_STATIONARITY"
+  },
+  "positive_transfer_case_b5_geothermal_brine": {
+    "relative_error_pct": 0.0,
+    "true_silica_scale_um": 9.2,
+    "worker_b_output": {
+      "cell_velocity_m_s": 0.25,
+      "data_source": "SYNTHETIC_SIMULATION",
+      "design_case": "CASE_B5_GEOTHERMAL_BRINE_SILICA_SCALING_AT_65C",
+      "estimated_bulk_temp_delta_k": 40.0,
+      "estimated_scale_thickness_um": 9.2,
+      "laminar_slip_stream_enforced": true,
+      "passivation_spec": "30nm_ALD_Al2O3_plus_30nm_ALD_HfO2_bilayer",
+      "power_rail_architecture": "Split_U7A_U7B_ADP7118_Plus_U8_ADM8829_U7C_ADP7182",
+      "reynolds_number_main_pipe": 24505.8,
+      "selected_f_th_pair_hz": [
+        6.25,
+        56.23
+      ],
+      "status": "VERIFIED_IDENTIFIABLE",
+      "wagner_dac_architecture": "Dual_Single_Channel_AD5683RBRMZ_U3A_I_U3B_Q"
+    }
+  },
+  "schema": "openline.otdb_apw.release_004.worker_b_inheritance.v1",
+  "zero_oracle_refusal_check": {
+    "reason": "ZERO_ORACLE_VIOLATION:ground_truth",
+    "status": "REFUSE"
+  }
+}

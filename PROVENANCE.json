@@ -1,0 +1,17 @@
+{
+  "bundled_external_datasets": [],
+  "bundled_model_weights": [],
+  "external_python_dependencies": {
+    "matplotlib": "3.10.1",
+    "numpy": "2.1.3",
+    "scipy": "1.15.2",
+    "shapely": "2.1.2"
+  },
+  "license": "Apache-2.0",
+  "prior_art_dois": [
+    "10.1063/5.0264117",
+    "10.1021/acsami.5c26362"
+  ],
+  "release_version": "0.4.0-rc4",
+  "schema": "openline.otdb_apw.release_004.cleanroom_provenance.v1"
+}

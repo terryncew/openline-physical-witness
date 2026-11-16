@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "otdb-apw-research-rc"
+version = "0.4.0"
+description = "Computational design, connected KiCad Rev D schematic, C99 lock-in firmware, and literature-inspired synthetic falsification suite for the OTDB-APW fouling sensor hypothesis."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [
+  {name = "OpenLine Research Contributors"}
+]
+dependencies = [
+  "numpy==2.1.3",
+  "scipy==1.15.2",
+  "matplotlib==3.10.1",
+  "shapely==2.1.2",
+]

@@ -1,0 +1,6 @@
+# Pinned Python dependencies for OTDB-APW Release Candidate 004
+# Offline/hermetic cleanroom compatible (no ONNX runtime or proprietary packages required)
+numpy==2.1.3
+scipy==1.15.2
+matplotlib==3.10.1
+shapely==2.1.2

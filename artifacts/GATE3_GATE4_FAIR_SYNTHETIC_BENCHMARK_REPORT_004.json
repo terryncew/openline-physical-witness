@@ -1,0 +1,293 @@
+{
+  "frozen_benchmark_contract": {
+    "calibration_samples": 60,
+    "calibration_seed": 20260401,
+    "epistemic_label": "SYNTHETIC_LITERATURE_INSPIRED_COMPUTATIONAL_TRIALS_ONLY",
+    "frozen_baseline_weights_sha256": "e291938d106286e95718160d4aa051e015fd49da65afc6e002ac314f0d2b03e4",
+    "holdout_seed": 20261115,
+    "raw_beamline_files_ingested": 0,
+    "schema": "openline.otdb_apw.release_004.frozen_benchmark_contract.v1",
+    "wafers_fabricated": 0,
+    "wet_lab_hours": 0
+  },
+  "frozen_benchmark_contract_sha256": "f6b8d3364a4727796f7e588fa7f3bdbd2527889d80910d0dc7ff9ec9fc6b19d4",
+  "negative_controls_and_loss_regimes": {
+    "NC1_THICK_CAKE_OVER_85UM": {
+      "otdb_apw_mean_error_pct_if_forced": 78.4,
+      "otdb_apw_true_abstentions": "20/20 (ABSTAIN_THICK_CAKE_THERMAL_SATURATION)",
+      "outcome": "CONVENTIONAL_WINS_OTDB_ABSTAINS",
+      "regime_description": "Macro-cake fouling (150-500 um, mean 420 um) exceeding 3-omega thermal penetration depth Lp = 84.3 um",
+      "winning_comparator": "Endress+Hauser Deltabar PMD75B Differential Pressure (1.14% mean error) & B3 Fusion (1.38% mean error)"
+    },
+    "NC2_ULTRAPURE_WATER_18P2_MOHM_CM": {
+      "otdb_apw_mean_error_pct_if_forced": 100.0,
+      "otdb_apw_true_abstentions": "20/20 (ABSTAIN_LOW_CONDUCTIVITY_DOMAIN)",
+      "outcome": "CONVENTIONAL_WINS_OTDB_ABSTAINS",
+      "regime_description": "18.2 MOhm-cm ultrapure water (sigma_b = 5.5 uS/m) exceeding 10 MOhm lock-in impedance ceiling",
+      "winning_comparator": "Mettler-Toledo Thornton 240-202 + M300 Coaxial Conductivity Sensor (0.85% mean error)"
+    },
+    "NC3_SUB_150NM_CONDITIONING_FILM": {
+      "otdb_apw_mean_error_pct_if_forced": 41.25,
+      "otdb_apw_true_abstentions": "18/20 (2/20 false non-abstentions near 135 nm)",
+      "outcome": "CONVENTIONAL_WINS_OTDB_BELOW_NOISE_FLOOR",
+      "regime_description": "20-140 nm (mean 80 nm) protein conditioning monolayer below 0.48 um 3-omega sensitivity floor",
+      "winning_comparator": "Biolin QSense Pro QCM-D Acoustic Microbalance (3.40% mean error)"
+    },
+    "NC4_NONSTATIONARY_COALESCING_EMULSION": {
+      "otdb_apw_mean_error_pct_if_forced": 64.8,
+      "otdb_apw_true_abstentions": "20/20 (ABSTAIN_NON_STATIONARY_INTERFACE)",
+      "outcome": "OTDB_FAILS_STATIONARITY_AND_ABSTAINS",
+      "regime_description": "Produced-water coalescing oil droplets causing 28.5% intra-frame admittance standard deviation over 1.2 s lock-in window",
+      "winning_comparator": "High-speed optical turbidity / ultrasonic backscatter (outside steady electro-thermal domain)"
+    },
+    "NC5_FOULED_REFERENCE_ARM_ASYMMETRIC_SHEAR": {
+      "b3_multisensor_fusion_mean_error_pct": 7.72,
+      "otdb_apw_mean_error_pct_if_forced": 71.17,
+      "otdb_apw_true_abstentions": "0/20 flagged by reference-cavity witness; 20/20 unflagged partial-fouling bias",
+      "outcome": "CONVENTIONAL_MULTISENSOR_FUSION_WINS_OTDB_LOSES",
+      "regime_description": "Reference arm fouls to 35%-75% of sense-arm thickness due to shear-step blockage",
+      "winning_comparator": "B3_MATCHED_BUDGET_MULTISENSOR_FUSION (7.72% mean error vs OTDB-APW 71.17%)"
+    },
+    "NC6_PASSIVATION_BILAYER_PINHOLE_BREACH": {
+      "otdb_apw_mean_error_pct_if_forced": 82.1,
+      "otdb_apw_true_abstentions": "19/20 (ABSTAIN_PASSIVATION_BREACH_DETECTED; 1/20 borderline miss)",
+      "outcome": "OTDB_REQUIRES_PROBE_REPLACEMENT",
+      "regime_description": "Monolayer Al2O3 hydrolysis / pinhole breach (R_leak = 180 kOhm boehmite shunt + +14.5 uV drift)",
+      "winning_comparator": "Externally isolated non-contact conductivity / Delta-P"
+    }
+  },
+  "scenarios": {
+    "S1_KHAJA_2026_INSPIRED_CONSTANT_EC_PARTICULATE": {
+      "b1_calibrated_4freq_eis_drt_pt1000": {
+        "iqr_pct": 12.15,
+        "mean_pct": 13.38,
+        "median_pct": 12.36,
+        "p95_pct": 23.91
+      },
+      "b2_calibrated_single_3w_flow_ec_pt1000": {
+        "iqr_pct": 0.67,
+        "mean_pct": 0.91,
+        "median_pct": 0.49,
+        "p95_pct": 2.98
+      },
+      "b3_matched_budget_multisensor_fusion": {
+        "iqr_pct": 0.52,
+        "mean_pct": 0.67,
+        "median_pct": 0.66,
+        "p95_pct": 1.5
+      },
+      "n_trials": 40,
+      "otdb_apw_rev_d": {
+        "iqr_pct": 1.22,
+        "mean_pct": 3.96,
+        "median_pct": 3.44,
+        "p95_pct": 6.2
+      },
+      "parameter_ranges": {
+        "cp_modulus": [
+          1.0,
+          1.0
+        ],
+        "sigma_b_s_m": [
+          0.004,
+          0.007
+        ],
+        "true_df_um": [
+          4.0,
+          24.0
+        ],
+        "u_m_s": [
+          0.2,
+          0.34
+        ]
+      },
+      "scientific_disposition": "PARITY_OR_CONVENTIONAL_SLIGHT_WIN_WITHOUT_SOLUBLE_CP"
+    },
+    "S2_LBNL_INSPIRED_SYNTHETIC_SCALING_WITH_SOLUBLE_CP": {
+      "b1_calibrated_4freq_eis_drt_pt1000": {
+        "iqr_pct": 48.54,
+        "mean_pct": 49.18,
+        "median_pct": 51.98,
+        "p95_pct": 85.03
+      },
+      "b2_calibrated_single_3w_flow_ec_pt1000": {
+        "iqr_pct": 32.05,
+        "mean_pct": 36.58,
+        "median_pct": 30.99,
+        "p95_pct": 97.12
+      },
+      "b3_matched_budget_multisensor_fusion": {
+        "iqr_pct": 50.93,
+        "mean_pct": 43.31,
+        "median_pct": 33.02,
+        "p95_pct": 98.18
+      },
+      "crlb_normalization_ratio_mean": 6.72,
+      "n_trials": 60,
+      "otdb_apw_rev_d": {
+        "iqr_pct": 3.42,
+        "mean_pct": 8.17,
+        "median_pct": 7.61,
+        "p95_pct": 13.55
+      },
+      "parameter_ranges": {
+        "cp_modulus": [
+          1.35,
+          2.15
+        ],
+        "porosity_phi": [
+          0.08,
+          0.24
+        ],
+        "sigma_b_s_m": [
+          0.003,
+          0.008
+        ],
+        "taper_ratio": [
+          0.15,
+          0.35
+        ],
+        "true_df_um": [
+          4.0,
+          26.0
+        ],
+        "u_m_s": [
+          0.16,
+          0.38
+        ]
+      },
+      "pure_cp_salt_front_false_alarms_out_of_20": {
+        "b1_calibrated_4freq_eis_drt_pt1000": 10,
+        "b3_matched_budget_multisensor_fusion": 0,
+        "otdb_apw_rev_d": 0
+      },
+      "sample_raw_observations": [
+        {
+          "b1_eis_est_df_um": 3.96,
+          "b3_fusion_est_df_um": 19.245,
+          "cp_modulus": 1.778,
+          "otdb_est_df_um": 13.043,
+          "porosity_phi": 0.171,
+          "trial_id": 0,
+          "true_df_um": 13.789,
+          "v1w_ref_prt_uv": 5397.547,
+          "v3w_diff_im_lo_uv": -62.915,
+          "v3w_diff_re_lo_uv": 120.257,
+          "y_sense_re_lo_us": 4.3262
+        },
+        {
+          "b1_eis_est_df_um": 2.412,
+          "b3_fusion_est_df_um": 4.084,
+          "cp_modulus": 1.929,
+          "otdb_est_df_um": 6.348,
+          "porosity_phi": 0.144,
+          "trial_id": 1,
+          "true_df_um": 6.784,
+          "v1w_ref_prt_uv": 12732.472,
+          "v3w_diff_im_lo_uv": -48.144,
+          "v3w_diff_re_lo_uv": 72.001,
+          "y_sense_re_lo_us": 3.3245
+        },
+        {
+          "b1_eis_est_df_um": 9.603,
+          "b3_fusion_est_df_um": 21.9,
+          "cp_modulus": 1.862,
+          "otdb_est_df_um": 22.205,
+          "porosity_phi": 0.138,
+          "trial_id": 2,
+          "true_df_um": 25.766,
+          "v1w_ref_prt_uv": 13496.985,
+          "v3w_diff_im_lo_uv": -106.614,
+          "v3w_diff_re_lo_uv": 179.141,
+          "y_sense_re_lo_us": 5.9003
+        },
+        {
+          "b1_eis_est_df_um": 2.731,
+          "b3_fusion_est_df_um": 8.142,
+          "cp_modulus": 1.364,
+          "otdb_est_df_um": 10.235,
+          "porosity_phi": 0.192,
+          "trial_id": 3,
+          "true_df_um": 11.068,
+          "v1w_ref_prt_uv": -10414.021,
+          "v3w_diff_im_lo_uv": -50.748,
+          "v3w_diff_re_lo_uv": 95.377,
+          "y_sense_re_lo_us": 4.4494
+        },
+        {
+          "b1_eis_est_df_um": 17.761,
+          "b3_fusion_est_df_um": 42.758,
+          "cp_modulus": 1.687,
+          "otdb_est_df_um": 21.201,
+          "porosity_phi": 0.097,
+          "trial_id": 4,
+          "true_df_um": 23.071,
+          "v1w_ref_prt_uv": 15019.298,
+          "v3w_diff_im_lo_uv": -95.573,
+          "v3w_diff_re_lo_uv": 177.87,
+          "y_sense_re_lo_us": 8.3261
+        }
+      ],
+      "scientific_disposition": "OTDB_APW_ADVANTAGE_IN_SIMULATED_CP_CONFOUNDED_REGIME_ONLY"
+    },
+    "S3_LBNL_INSPIRED_SYNTHETIC_CAKE_COMPACTION": {
+      "b3_matched_budget_multisensor_fusion": {
+        "iqr_pct": 30.46,
+        "mean_pct": 32.69,
+        "median_pct": 28.49,
+        "p95_pct": 95.32
+      },
+      "n_trials": 40,
+      "otdb_apw_4state_fixed_porosity": {
+        "iqr_pct": 50.92,
+        "mean_pct": 46.23,
+        "median_pct": 41.64,
+        "p95_pct": 109.78
+      },
+      "otdb_apw_5state_porosity_coupled": {
+        "iqr_pct": 5.78,
+        "mean_pct": 8.05,
+        "median_pct": 5.72,
+        "p95_pct": 18.33
+      },
+      "parameter_ranges": {
+        "porosity_phi": [
+          0.08,
+          0.38
+        ],
+        "true_df_um": [
+          4.0,
+          24.0
+        ]
+      }
+    },
+    "S4_HIGH_WATER_EPS_HYDROGEL_BIOFILM": {
+      "b3_matched_budget_multisensor_fusion": {
+        "iqr_pct": 26.32,
+        "mean_pct": 85.73,
+        "median_pct": 94.99,
+        "p95_pct": 98.57
+      },
+      "low_thermal_contrast_warnings_flagged": "22/40",
+      "n_trials": 40,
+      "otdb_apw_rev_d": {
+        "iqr_pct": 13.18,
+        "mean_pct": 13.42,
+        "median_pct": 11.49,
+        "p95_pct": 23.86
+      },
+      "parameter_ranges": {
+        "true_df_um": [
+          4.0,
+          22.0
+        ],
+        "water_fraction": [
+          0.42,
+          0.58
+        ]
+      },
+      "scientific_disposition": "DEGRADED_SENSITIVITY_CONVENTIONAL_FUSION_WINS_ON_HIGH_WATER_GEL"
+    }
+  },
+  "schema": "openline.otdb_apw.release_004.fair_synthetic_benchmarks.v1"
+}

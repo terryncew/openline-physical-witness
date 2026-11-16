@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+title: "OTDB-APW Rev D: Orthogonal Thermo-Electro-Differential Bridge & Fisher-Rank Active Physical Witness (Computational Research Release Candidate 004)"
+message: "If you evaluate, critique, or falsify this computational instrument design, please cite this release candidate and the primary prior-art publications below."
+type: software
+authors:
+  - name: "OpenLine Research Contributors"
+version: "0.4.0-rc4"
+license: Apache-2.0
+references:
+  - type: article
+    title: "Crossflow membrane filtration system for operando fouling characterization using transmission x-ray scattering"
+    authors:
+      - family-names: Nassr
+        given-names: Mostafa
+    journal: "Review of Scientific Instruments"
+    volume: 96
+    issue: 6
+    start: "065209"
+    year: 2025
+    doi: "10.1063/5.0264117"
+  - type: article
+    title: "3D Impedimetric Microfluidic Membrane-Mimic Cassette (IM3) with Interdigitated Electrodes for Fouling Analysis at Membrane Interfaces"
+    authors:
+      - family-names: Khaja
+        given-names: Najamuddin Naveed
+      - family-names: Basuray
+        given-names: Sagnik
+    journal: "ACS Applied Materials & Interfaces"
+    volume: 18
+    issue: 17
+    start: 25382
+    end: 25395
+    year: 2026
+    doi: "10.1021/acsami.5c26362"
+  - type: article
+    title: "Thermal conductivity measurement from 30 to 750 K: The 3-omega method"
+    authors:
+      - family-names: Cahill
+        given-names: David G.
+    journal: "Review of Scientific Instruments"
+    volume: 61
+    issue: 2
+    start: "802"
+    end: "808"
+    year: 1990
+    doi: "10.1063/1.1141498"

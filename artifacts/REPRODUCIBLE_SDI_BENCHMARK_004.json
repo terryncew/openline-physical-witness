@@ -1,0 +1,32 @@
+{
+  "calibration_state": {
+    "cal_ald_c_series_pf": 553.7719,
+    "cal_c_par_pf": 5.54,
+    "cal_r0_ohm": 100.0,
+    "calibrated": true
+  },
+  "external_lab_frame_ingestion_verified": {
+    "estimated_fouling_um": 1.658,
+    "input_source_tag": "EXTERNAL_BENCHTOP_ADC_FRAME_FIXTURE_NOT_PHYSICAL_CLAIM",
+    "witness_status": "VERIFIED_IDENTIFIABLE"
+  },
+  "negative_control_420um_cake_demonstration": {
+    "conventional_delta_p_estimated_um": 416.91,
+    "conventional_delta_p_rel_error_pct": 0.74,
+    "data_source": "SYNTHETIC_SIMULATION",
+    "demonstration_verdict": "CONVENTIONAL_DELTA_P_WINS_IN_THICK_CAKE_REGIME_OTDB_APW_SAFELY_ABSTAINS",
+    "otdb_apw_abstained": true,
+    "otdb_apw_firmware_status": "FW_STATUS_ABSTAIN_THICK_CAKE_SATURATION",
+    "true_cake_thickness_um": 420.0
+  },
+  "positive_synthetic_7p5um_trace": {
+    "c99_abstained": false,
+    "c99_firmware_status": "FW_STATUS_OK_VERIFIED_IDENTIFIABLE",
+    "data_source": "SYNTHETIC_SIMULATION",
+    "recommended_f_th_pair_hz": [
+      4.0,
+      36.0
+    ]
+  },
+  "schema": "openline.otdb_apw.release_004.reproducible_sdi_benchmark.v1"
+}

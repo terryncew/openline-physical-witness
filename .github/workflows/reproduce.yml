@@ -1,0 +1,18 @@
+name: Reproduce computational research
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned Python dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Reproduce verified source and scientific figures
+        run: bash ./REPRODUCE_OTDB_APW_RELEASE_004.sh
