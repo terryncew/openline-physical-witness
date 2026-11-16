@@ -1,0 +1,27 @@
+{
+  "input_evidence_classification": {
+    "meter_telemetry": "OBSERVED_METER_CSV_UNVERIFIED_CALIBRATION",
+    "site_parameters": "USER_DECLARED_SCENARIO",
+    "tariff_parameters": "USER_DECLARED_TARIFF_SCENARIO",
+    "weather_series": "WEATHER_CSV (CONSTRUCTED_SEASONAL_WEIGHTED_BIN_PHOENIX_1_NOT_NOAA_OBSERVATIONS)"
+  },
+  "live_bms_actuation_permitted": false,
+  "pinned_assumptions": {
+    "grid_ewif_l_per_kwh": 1.45,
+    "it_load_kw": 10000.0,
+    "rack_max_liquid_inlet_c": 40.0,
+    "silica_ppm": 28.0
+  },
+  "prior_70pct_sensor_claim_rejected": true,
+  "receipt_authority": "CONTENT_HASH_ONLY_NOT_SIGNED_NOT_RECEIVER_AUTHORIZED",
+  "receipt_sha256": "9cfcb90705fd318c5ae3f07e90cf9ed94551bbf1a2292717e922c28b2e2b9a73",
+  "schema": "openline.sensors.004.design_receipt.v1",
+  "site_canonical_sha256": "37f6720b45b9b2c9ef9722a0ed8737ec66151ada247c8bace521b90c0951fa1d",
+  "site_id": "PHOENIX_AZ_10MW_AI_CLUSTER",
+  "site_sha256": "f28853116e251cf484d39196bc47e2ed45777ffd350526bc17600cbf335a7288",
+  "status": "MODELED_ENGINEERING_PROPOSAL_NOT_OBSERVED_FIELD_SAVINGS",
+  "tariff_canonical_sha256": "e4d48e69fc736498ec915a70d7090973e88e05b176b23587d5a795512c01fdac",
+  "tariff_sha256": "70c8b1f00e3f04be40c44f013ce9073ccad924e64e650f11f2219cfa4ec919a0",
+  "telemetry_sha256": "c4e6a195fca163fc9d487068bf08ea807162b0ee4622148a644d623a309baf71",
+  "weather_sha256": "b9eab9ceed195e023304217e93295086a3907648405d6345604c3812adc4fa20"
+}

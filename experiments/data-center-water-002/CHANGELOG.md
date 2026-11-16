@@ -1,30 +1,39 @@
-### Independent verification correction (0.2.1, 2026-11-16)
-- Independently falsified RC 0.2's physics cap: 2.30 L/kWh_th passed the scenario engine despite its own 1.55 L/kWh_th ceiling; now rejected.
-- Removed direct hidden ground-truth (`reg`) use from the static benchmark comparator. It now takes *only* sensor readings. This was oracle leakage, not a valid comparator.
-- Explicitly labeled matched-plant experiments as constructed, same-source and not an independent blinded holdout.
-- Added two regression tests. No actual savings, sensor win, or operational qualification is claimed.
-
 # Candid Changelog & Claim Disposition Ledger (`CHANGELOG.md`)
 
+## Version 0.4.1-rc1 — GPT-6 independent source dogfood (2026-11-16)
+- 50/50 tests normal and optimized (35 inherited + 15 independent); 400-case bounded chemistry stress test; clean-room extraction pending fresh-archive replay.
+- Fixed overlapping constructed-weather bins, made provenance explicit, and reject more than one year of weather samples. Weather fixtures are **synthetic weighted bins**.
+- Corrected S1's initially unsafe low-SiO2 concentration target; added no-valid-chemistry abstention; only credit sewer deductions after explicit utility eligibility.
+- Removed automatic 35% TES and fractional IT-load peak savings without declared dispatch evidence; developer-paid upgrade/85% take-or-pay outcomes are **conditional contract scenarios**, never verified agreements.
+- Excluded hypothetical W40 rack upgrades from cost-based Pareto selection until their capex and certification are declared.
+- Reject non-boolean approval flags; refuse to substitute promised tax/jobs/infrastructure numbers for missing public disclosures; retain true documented zeros.
+- Added canonical site and tariff hash checks for broader Decision Recall and labeled SHA-256 receipts as **unsigned content hashes**.
+- Renamed S3 authority claims to **heuristic modeled sensor value**, not demonstrated Fisher rank or calibrated identification.
+- Keep dry/chiller design inquiry available when wet-tower chemistry is missing, but reject unqualified wet plant operation.
+- More transparent report/economic limitations and regenerated illustrative scenarios. No field savings or certifiable real-time control.
+
+## Version 0.4.0-rc1 (2026-11-16 — Solutions Design Engine & Public-Benefit Accountability)
+
+### 1. New Engineering Capabilities Built on Canonical `v0.2.1` (`23f3a182...`)
+- **Added `solutions.py` & `water_audit.py design / claims / concepts` CLI**:
+  - Implements `S1` (Chemistry-Bounded Cooling-Tower Optimizer vs. DOE FEMP BMP #10 / EPA WaterSense Sec 6.3), `S2` (Weather-Constrained Dry/Hybrid Dispatch & Pareto Frontier), `S3` (Fisher-Information Sensor/Observer Gate), `S4` (Reclaimed & Condensate Water-Source Substitution), `S5` (4-Hr Thermal Storage Peak Shaving & 3 Ratepayer/Developer Cost Allocations), `S6` (Waste-Heat Reuse Feasibility Gate), and `S7` (Cryptographic Assumption Receipts & Automatic Decision Recall).
+  - Generates the 5 required design artifacts (`candidate_solutions.json`, `ranked_pareto.csv`, `engineering_report.md`, `assumption_receipts.json`, `equipment_boundary.md`) plus 3 worked engineering concept packets (`concepts`) and a promised-vs-documented public claims auditor (`claims`).
+  - Preserves all `23/23` unit tests from `v0.2.1` untouched and adds `12/12` new adversarial and cross-climate transfer tests in `tests/test_solutions_004.py` (`35/35` total tests passing in standard and `-O` Python with `0` `ResourceWarning`s).
+
+## Version 0.2.1 (2026-11-16 — GPT-6 Independent Corrections on Candidate 0.2)
+- Enforced `MAX_SCENARIO_EVAP_COEFF_L_PER_KWH_TH = 1.55` in `evaluate_scenario()` to match `audit()`'s First-Law thermodynamic ceiling.
+- Extracted `classify_static_mems_threshold(mems_dt, mems_flow)` taking only the two observed numbers so the static comparator never receives ground-truth regime or fault flags.
+
 ## Version 0.2 (2026-11-16 — Branch `research/data-center-water-audit-001`)
+- Fixed boolean-to-float coercion (`EvidenceError`), ragged CSV row acceptance (`None` key in `csv.DictReader`), and spreadsheet formula injection (`=`, `+`, `@`).
+- Added `--map`, `--water-unit` (`l`, `gal`, `m3`, `kl`, `ccf`), `--power-unit` (`kw`, `mw`, `w`), optional `reclaimed_l`, `--grid-range`, drift mass-balance displacement ($B = E/(\text{CoC}-1) - D$ per [Zenodo 10.5281/zenodo.23246001](https://zenodo.org/doi/10.5281/zenodo.23246001)), and orthogonal plant-vs-sensor attribution.
 
-### 1. Evidenced Software & Physics Repairs over Candidate 0.1 (`c265a546...`)
-- **Fixed Boolean-to-Float Coercion (`EvidenceError`)**: `evaluate_scenario()` and `audit()` previously allowed Python `bool` values (`True -> 1.0`, `False -> 0.0`) via `float()`. Booleans are now explicitly rejected.
-- **Fixed Ragged CSV Row Acceptance (`EvidenceError`)**: `audit()` now rejects CSV rows with extra unquoted commas (`None` key in `csv.DictReader`), missing cells, duplicate headers, or leading spreadsheet formula injection characters (`=`, `+`, `@`).
-- **Enforced First-Law Thermodynamic Latent-Heat Bounds & Drift Mass Balance**: `evaluate_scenario()` now rejects unphysical evaporation coefficients (`> 2.50 L/kWh_th`, vs. theoretical pure latent evaporation `~1.481 L/kWh_th`), models tower drift displacement ($B = E/(\text{CoC}-1) - D$ per [Zenodo 10.5281/zenodo.23246001](https://zenodo.org/doi/10.5281/zenodo.23246001)), decomposes plant-design vs. chemistry vs. sensor attribution (`attribution_decomposition_l_model`), and computes the exact grid water intensity crossover (`EWIF*`).
-- **Added User CSV Unit/Column Adapter & Thermodynamic Anomaly Flags**: Added `--map`, `--water-unit` (`l`, `gal`, `m3`, `kl`, `ccf`), `--power-unit` (`kw`, `mw`, `w`), `--grid-range`, optional `reclaimed_l` accounting, `covered_window_end_utc`, and interval anomaly flags (`THERMODYNAMIC_EVAP_CEILING_EXCEEDED`, `SCALING_RISK_HIGH_IMPLIED_COC`, `LOW_IMPLIED_COC_ONCE_THROUGH_OR_STUCK_BLOWDOWN`).
-- **Added Matched-Plant Sensor Competition (`compete`) & Pre-Hardware Matrix (`hardware-matrix`)**: Demonstrates that on an equally equipped plant, competent passive energy-balance FDD (`Incumbent_B`) ties active ABA perturbation (`Candidate_C`) on `100.0%` of normal, single-sensor-drift, and unconfounded-fouling trials (`0.0 L` water delta), with active/reference sensing only separating simultaneous collinear multi-sensor drift + bypass/fouling confounders in simulation.
+### Independent Claim Disposition Table (`VERIFIED` / `MODELED` / `REJECTED` / `UNTESTED`)
 
-### 2. Independent Claim Disposition Table (`VERIFIED` / `MODELED` / `REJECTED` / `UNTESTED`)
-
-| Prior Claim or Component | Disposition | Evidence & Boundary |
+| Claim or Component | Disposition | Evidence & Boundary |
 | --- | --- | --- |
-| **Offline CSV & JSON water/energy audit CLI (`water_audit.py`, 21/21 standard & `-O` tests)** | **VERIFIED (Software Logic Only)** | Reproducible with Python 3.10+ standard library; rejects malformed, overlapping, ragged, boolean, and unphysical inputs fail-closed. |
-| **70.2% site-water reduction as an OpenLine sensor breakthrough (Sensors 002)** | **REJECTED (Plant-Design Confounder)** | Ablation (`SENSORS_002_INDEPENDENT_ABLATION.py`) proved that holding `W40` warm-water, `CoC=8`, and hybrid dry-cooling constant on a healthy incumbent produces identical `46,487,615 L/yr` site water (`0 L` incremental OpenLine delta). |
-| **$353k–$420k/yr net savings & 54.9% software-only water reduction (Sensors 002 Arm B)** | **REJECTED as Unconditional Software Gain / MODELED Scenario Only** | Assumed pre-existing uninstalled dry-cooler hardware; without dry-cooler hardware, modeled software/chemistry delta drops to `3.23%`, and all financial figures are unverified model assumptions. |
-| **66.7% "combined water reduction" (Sensors 002)** | **REJECTED as Total Facility Water** | Excluded indirect grid water from IT server electricity (`87,600 MWh/yr`); including total IT + cooling grid electricity changes modeled reduction to `29.89%–34.30%` in thermoelectric grids (Ashburn/Phoenix/Austin). |
-| **98.33% cold-plate fault accuracy & 1,950 GPU throttle hours avoided (Sensors 002)** | **MODELED (Synthetic Generator Only) / UNTESTED in Hardware** | Derived from synthetic trials parameterized around [Lee et al. (Nov 12, 2026)](https://www.mdpi.com/2072-666X/17/11/1312) 120h MEMS drift; competent passive energy-balance FDD ties active ABA on 100% of non-collinear trials. |
-| **Custom $3\omega$ + EIS In-Line Microchannel Cartridge ($210k CapEx, Arm E / OTDB-APW)** | **REJECTED for Capital Spend / UNTESTED Physically** | Zero fabricated wafers, zero wet-lab hours, native KiCad ERC unrun, vulnerable to partial reference fouling without software screen, and saves `<1%` facility water standalone inside a closed TCS loop. |
-| **COTS Sidestream Pt100 + Auto-Zero dP + EC Reference Kit ($292.40 BOM)** | **MODELED / NOT READY for Field Control** | Electrically valid COTS benchtop BOM (4x MAX31865 + TCA9548A), but unbuilt, uncalibrated on wet loops, and lacks industrial pressure/UL certification or installation labor pricing. |
-| **97.5% HVAC economizer fault accuracy & $89.40 kit (Sensors 001)** | **REJECTED** | Relied on fixed 600 ppm $\text{CO}_2$ contrast (degraded to `76.3%` at 40 ppm contrast) and an incomplete 2-sensor unmultiplexed BOM. |
-| **Zero-corruption water replay on 21 literature rows (Sensors 001 / 008)** | **REJECTED as Attested Field Proof / REPAIRED in Software** | Earlier `status_flag` label leak and hardcoded `0` counter repaired; literature rows lack attested reference sensor custody (`0/21` reference-verified). |
+| **Offline Audit & Solutions Design CLI (`water_audit.py` + `solutions.py`, 35/35 standard & `-O` tests)** | **VERIFIED (Software Logic Only)** | Reproducible with Python 3.10+ standard library; passes all 23 `v0.2.1` tests and 12 `v0.4.0` adversarial/transfer tests (`0` `ResourceWarning`s). |
+| **S1 Cooling-Tower Chemistry Optimizer (`S1A/S1B/S1C`)** | **MODELED (Open Implementation of DOE FEMP / EPA Best Practice)** | Reproduces [DOE FEMP BMP #10](https://www.energy.gov/cmei/femp/best-management-practice-10-cooling-tower-management) (`CoC 3->6` saves `20.0%` makeup) when chemistry permits, caps `CoC` at `3.63` in high-silica Phoenix water (`28 mg/L SiO2`), catches `>10%` mass-vs-conductivity leak mismatch ([EPA WaterSense Eq. 6-4 vs 6-5](https://www.epa.gov/system/files/documents/2023-05/ws-commercial-watersense-at-work_Section_6.3_Cooling_Towers.pdf)), and abstains when chemistry inputs are missing. |
+| **S2 Weather-Constrained Dry/Hybrid Dispatch & Pareto Frontier** | **MODELED (Plant Engineering Simulation)** | Proves dry cooling cannot reject heat on $43\,^\circ\text{C}$ Phoenix summer hours at `W32` (`q_dry_kw = 0.0`), and shows that in high-EWIF PJM (`Ashburn`, $2.40\text{ L/kWh}$), zero-evap chiller retrofit (`P4`) is Pareto-dominated by `W40` hybrid cooling (`P3`) because chiller kWh consumes more river water at the power plant (`232.51M` vs `223.91M L/yr`). |
+| **S3 Sensor/Observer Gate & Custom $3\omega$+EIS Cartridge ($210k CapEx)** | **REJECTED (Custom Cartridge) / MODELED (COTS & Passive FDD)** | Refuses extra hardware in well-instrumented plants (`Ashburn`) where passive energy-balance FDD suffices; rejects custom $3\omega$+EIS cartridge (`-$29,540/yr` net VoI) in favor of `$0` maintenance ABA steps or `$292.40–$1,490` COTS Pt100/auto-zero $\Delta P$ reference kits when uncalibrated cold-plate MEMS sensors are present. |
+| **70.2% site-water reduction as an OpenLine sensor breakthrough (Sensors 002)** | **REJECTED (Plant-Design Confounder)** | Holding `W40` warm-water, `CoC=8`, and hybrid dry-cooling constant on a healthy incumbent produces identical site water (`0 L` sensor-only water delta). |

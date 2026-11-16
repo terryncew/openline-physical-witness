@@ -1,0 +1,31 @@
+{
+  "project_id": "SAMPLE_HYPERSCALE_EXPANSION_FILING_001",
+  "reporting_deadline_passed": true,
+  "source_citations": [
+    "Constructed representative municipal economic development agreement & water permit application (not a live customer record)"
+  ],
+  "promised_claims": {
+    "capital_investment_usd": 800000000.0,
+    "permanent_full_time_jobs": 50.0,
+    "annual_local_tax_revenue_usd": 4500000.0,
+    "annual_public_subsidy_or_abatement_usd": 3200000.0,
+    "grid_infrastructure_upgrade_cost_usd": 15000000.0,
+    "ratepayer_funded_infrastructure_share_usd": 0.0,
+    "peak_electricity_demand_mw": 60.0,
+    "annual_water_withdrawal_l": 95000000.0,
+    "annual_water_consumption_evaporative_l": 76000000.0,
+    "annual_reclaimed_water_intake_l": 40000000.0
+  },
+  "documented_disclosures": {
+    "capital_investment_usd": 790000000.0,
+    "permanent_full_time_jobs": 32.0,
+    "annual_local_tax_revenue_usd": 3900000.0,
+    "annual_public_subsidy_or_abatement_usd": 3600000.0,
+    "grid_infrastructure_upgrade_cost_usd": 28000000.0,
+    "ratepayer_funded_infrastructure_share_usd": 18500000.0,
+    "peak_electricity_demand_mw": 72.0,
+    "annual_water_withdrawal_l": 142000000.0,
+    "annual_water_consumption_evaporative_l": null,
+    "annual_reclaimed_water_intake_l": 12000000.0
+  }
+}

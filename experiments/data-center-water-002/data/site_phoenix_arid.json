@@ -1,0 +1,41 @@
+{
+  "site_id": "PHOENIX_AZ_10MW_AI_CLUSTER",
+  "it_load_kw": 10000.0,
+  "ancillary_heat_fraction": 0.04,
+  "liquid_heat_capture_fraction": 0.85,
+  "rack_max_liquid_inlet_c": 40.0,
+  "allows_warm_water_w40_rack_upgrade": true,
+  "cdu_approach_delta_t_k": 4.0,
+  "dry_cooler_min_approach_k": 6.0,
+  "dry_cooler_ua_kw_per_k": 1400.0,
+  "has_existing_dry_cooler": false,
+  "current_cycles_of_concentration": 3.5,
+  "condenser_or_hx_skin_temp_c": 43.0,
+  "tower_latent_evap_share": 0.78,
+  "tower_drift_fraction_of_evap": 0.005,
+  "has_evaporative_sewer_submeter_credit": false,
+  "tcs_flow_lpm": 15000.0,
+  "tcs_delta_t_c": 8.6,
+  "has_calibrated_redundant_cdu_rtds": false,
+  "has_autozero_differential_pressure": false,
+  "uses_uncalibrated_flexible_coldplate_mems": true,
+  "annual_collinear_fault_or_scale_risk_usd": 18000.0,
+  "reclaimed_water_available_l_per_yr": 45000000.0,
+  "ahu_condensate_available_l_per_yr": 450000.0,
+  "declared_movable_it_sla_fraction": 0.0,
+  "promised_permanent_jobs": 45,
+  "water_chemistry": {
+    "makeup_conductivity_us_cm": 620.0,
+    "blowdown_conductivity_us_cm": 2170.0,
+    "ph": 7.9,
+    "silica_ppm": 28.0,
+    "calcium_hardness_ppm_as_caco3": 240.0,
+    "alkalinity_ppm_as_caco3": 165.0,
+    "chloride_ppm": 88.0,
+    "metered_makeup_l_sample": 1400.0,
+    "metered_blowdown_l_sample": 400.0
+  },
+  "heat_reuse_offtaker": {
+    "exists": false
+  }
+}

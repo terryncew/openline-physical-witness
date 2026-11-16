@@ -1,0 +1,27 @@
+{
+  "input_evidence_classification": {
+    "meter_telemetry": "ABSENT",
+    "site_parameters": "USER_DECLARED_SCENARIO",
+    "tariff_parameters": "USER_DECLARED_TARIFF_SCENARIO",
+    "weather_series": "WEATHER_CSV (CONSTRUCTED_SEASONAL_WEIGHTED_BIN_ASHBURN_1_NOT_NOAA_OBSERVATIONS)"
+  },
+  "live_bms_actuation_permitted": false,
+  "pinned_assumptions": {
+    "grid_ewif_l_per_kwh": 2.4,
+    "it_load_kw": 10000.0,
+    "rack_max_liquid_inlet_c": 38.0,
+    "silica_ppm": 14.0
+  },
+  "prior_70pct_sensor_claim_rejected": true,
+  "receipt_authority": "CONTENT_HASH_ONLY_NOT_SIGNED_NOT_RECEIVER_AUTHORIZED",
+  "receipt_sha256": "91dd29bbe3c32143648bb7ad6d58bdaf4377a0c1c0958f44d45b688ec9c5e1a7",
+  "schema": "openline.sensors.004.design_receipt.v1",
+  "site_canonical_sha256": "ff47ed4842be938903a8beec536a24ac9bc90dae7f5316feaddefd026de7382c",
+  "site_id": "ASHBURN_VA_10MW_AI_CLUSTER",
+  "site_sha256": "21fe327345d1bdac0bc3bfd9b832c8184a32f8887bbfa06c687cdb5d8f494570",
+  "status": "MODELED_ENGINEERING_PROPOSAL_NOT_OBSERVED_FIELD_SAVINGS",
+  "tariff_canonical_sha256": "bf19238e2bac1f743a709ce74836a67dbe0629b53ab082e36009afd67a91581d",
+  "tariff_sha256": "14491ac78939603464af08db7b36815744672b1abe690d863687f41bec3476ee",
+  "telemetry_sha256": null,
+  "weather_sha256": "39d2b0d757f4cee9baea33cf7edcd022f2601b500d1545d5e7b5f5d8f76a5d6c"
+}

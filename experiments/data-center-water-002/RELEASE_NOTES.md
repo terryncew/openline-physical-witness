@@ -1,13 +1,14 @@
-## Independent audit update — candidate 0.2.1
+# OpenLine Sensors 004 — Solutions Design Engine & Water Audit (private independent acceptance candidate 0.4.1-rc1)
 
-GPT-6 reproduced Argon’s 21/21 standard and optimized tests on the exact RC 0.2 ZIP, then found two untested boundary failures: an accepted 2.30 L/kWh_th evaporation coefficient above the stated 1.55 ceiling, and hidden generator truth (`reg`) used by the static benchmark comparator. Corrected both. Added two adversarial tests. All simulation results remain hypothetical and field savings unverified.
+**Engineering design, simulation, and accountability tool — not a certified live control system or field-validated savings claim.**
 
-# OpenLine Sensors — public research candidate 0.2
+Scope: Extends canonical `openline-sensors-water-0.2.1` (`23f3a182...`, 23/23 tests) with `solutions.py` and `tests/test_solutions_004.py` (50/50 total standard and `-O` tests passing with 0 ResourceWarnings). Implements and competes all 7 engineering approaches (`S1` Chemistry-Bounded Tower Optimizer, `S2` Weather-Constrained Dry/Hybrid Dispatch & Pareto Frontier, `S3` Heuristic Sensor/Observer Gate, `S4` Reclaimed & Condensate Water Substitution, `S5` Conditional Thermal Storage Peak-Shaving Design & 3 Ratepayer/Developer Cost Allocations, `S6` Waste-Heat Reuse Feasibility Gate, and `S7` Assumption Receipts & Decision Recall), 3 complete worked engineering concept packets (`concepts`), and a promised-vs-documented public claims verifier (`claims`).
 
-**Research / reproducibility release, not a validated performance release.**
 
-Scope: one dependency-free, Python 3.10+ command-line instrument (`water_audit.py`) that audits user-supplied CSV water and energy totals (with unit/column mapping for gallons, m3, MW, and reclaimed water, plus First-Law thermodynamic leak/anomaly checks), one transparent steady-state scenario model with orthogonal plant-vs-sensor attribution and grid EWIF crossover bounds, one matched-plant diagnostic comparator (`compete`) and pre-hardware engineering matrix (`hardware-matrix`), explicitly constructed fixtures plus a public literature benchmark catalog (`data/public_literature_benchmarks.json`), and 21 independent negative/unit tests. No external calls, credentials, remote telemetry, actuation, hardware construction, or downloadable private research archives.
+## Independent corrections in 0.4.1
 
-Tested: Python 3.10+ normal and `-O` optimized mode, 21/21 tests each (`0` ResourceWarnings). Validated source file hash in each CSV audit result.
+The first 004 archive was **not** accepted solely on its passing 35 tests. GPT-6's independent check introduced 15 additional adversarial tests (50 total), including: overlapped constructed-weather intervals; unsafe high-silica concentration target; invented 35% thermal storage benefit without dispatch; sewer deductions without utility approval; missing W40 rack retrofit costs; unsigned take-or-pay agreements misreported as accomplished ratepayer protection; uncalibrated Fisher-information claims; changes to tariff/site inputs not triggering recall; documented zeros silently replaced by promised benefits; and string booleans pretending to be approval.
 
-Deliberately excluded: 70.2% water savings as an OpenLine effect; $353k-$420k claimed earnings; 98.33% real-world fault identification; unattended cooling-system control; non-reproducible customer reports. See `CHANGELOG.md` for the complete VERIFIED / MODELED / REJECTED / UNTESTED disposition table.
+New model conclusions are different from earlier sample reports. Full demonstration packets have been regenerated and must not be compared as if equipment and tariff conditions were held constant. All resource and savings outputs are **modeled only**. In particular, the Phoenix tower's modeled chemistry treatment may be necessary but does not produce positive operating savings when sewer deductions are unapproved. Real engineering qualification remains open.
+
+SHA-256 receipts are not signatures. Constructed seasonal weather bins are not actual weather stations or chronological control-ready records. This release is a **candidate** for public research code review, not a certified control system or equipment ordering package.
