@@ -1,0 +1,22 @@
+name: Reference-arm observability 006 research-only
+on:
+  push:
+    paths:
+      - 'experiments/reference-006/**'
+      - '.github/workflows/reference-006.yml'
+  pull_request:
+    paths:
+      - 'experiments/reference-006/**'
+      - '.github/workflows/reference-006.yml'
+permissions:
+  contents: read
+jobs:
+  model-and-fault-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run host-only qualification
+        run: |
+          cd experiments/reference-006
+          bash VERIFY_RESEARCH_ONLY.sh
