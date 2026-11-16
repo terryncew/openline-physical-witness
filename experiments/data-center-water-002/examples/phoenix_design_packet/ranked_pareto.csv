@@ -1,0 +1,6 @@
+plant_id,name,feasible,pareto_optimal,cycles_of_concentration,dry_heat_rejection_share_pct,site_makeup_l,site_blowdown_l,site_wue_l_per_it_kwh,cooling_elec_kwh,peak_cooling_elec_kw,pue,total_site_plus_all_grid_water_l,capex_usd,annualized_total_cooling_cost_usd
+P0_EXISTING_WET_TOWER_BASELINE,Existing Evaporative Cooling Tower Baseline,True,True,3.5,0.0,147386026.7,41583914.7,1.6825,3602112.0,411.2,1.0411,279629089.1,0.0,1019859.67
+P1_S1_TOWER_OPTIMIZER_ONLY,S1 Chemistry-Bounded Tower Optimizer + Evaporative Sewer Submeter (No Dry Cooler),True,True,3.63,0.0,145304529.3,39502417.3,1.6587,3602112.0,411.2,1.0411,277547591.7,8500.0,1021363.31
+P2_HYBRID_DRY_WET_AT_CURRENT_RACK_LIMIT,S2 Hybrid Dry/Evaporative Cooler at Current Rack Limit (40C Inlet),True,True,3.63,69.18,44785642.6,12175402.6,0.5113,5174904.0,653.52,1.0591,179309253.4,380000.0,819285.25
+P3_WARM_WATER_W40_HYBRID_DRY_WET,S2 Warm-Water W40 (45C Rack Inlet / 40C FWS) Hybrid Dry/Evaporative Cooler,True,False,3.63,79.45,29857095.1,8116935.1,0.3408,5495952.0,767.92,1.0627,164846225.5,420000.0,809369.55
+P4_ZERO_EVAP_DRY_PLUS_CHILLER_RETROFIT,"Full Dry Cooler + Mechanical Chiller Trim (Zero Site Evaporation, High Peak kW)",True,True,3.63,100.0,0.0,0.0,0.0,17008978.4,3552.34,1.1942,151683018.7,950000.0,2280525.94

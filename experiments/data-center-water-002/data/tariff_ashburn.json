@@ -1,0 +1,19 @@
+{
+  "tariff_id": "ASHBURN_PJM_LARGE_LOAD_SCENARIO",
+  "electricity_energy_usd_per_kwh": 0.082,
+  "electricity_peak_demand_usd_per_kw_month": 14.2,
+  "potable_water_usd_per_m3": 1.45,
+  "reclaimed_water_usd_per_m3": 0.8,
+  "wastewater_discharge_usd_per_m3": 2.15,
+  "grid_ewif_l_per_kwh": 2.4,
+  "grid_ewif_range_l_per_kwh": [
+    1.4,
+    2.4,
+    3.5
+  ],
+  "declared_grid_substation_upgrade_cost_usd": 22000000.0,
+  "promised_annual_tax_abatement_subsidy_usd": 2500000.0,
+  "projected_gross_annual_local_tax_usd": 4800000.0,
+  "analysis_horizon_years": 12,
+  "discount_rate": 0.06
+}

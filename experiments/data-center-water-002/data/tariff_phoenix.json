@@ -1,0 +1,19 @@
+{
+  "tariff_id": "PHOENIX_WECC_LARGE_LOAD_SCENARIO",
+  "electricity_energy_usd_per_kwh": 0.088,
+  "electricity_peak_demand_usd_per_kw_month": 15.5,
+  "potable_water_usd_per_m3": 1.85,
+  "reclaimed_water_usd_per_m3": 0.95,
+  "wastewater_discharge_usd_per_m3": 2.4,
+  "grid_ewif_l_per_kwh": 1.45,
+  "grid_ewif_range_l_per_kwh": [
+    0.8,
+    1.45,
+    2.2
+  ],
+  "declared_grid_substation_upgrade_cost_usd": 28000000.0,
+  "promised_annual_tax_abatement_subsidy_usd": 3800000.0,
+  "projected_gross_annual_local_tax_usd": 4200000.0,
+  "analysis_horizon_years": 12,
+  "discount_rate": 0.06
+}

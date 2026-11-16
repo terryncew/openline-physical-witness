@@ -672,6 +672,18 @@ def main() -> int:
     s.add_parser("compete", help="run matched-plant sensor decision benchmark (computational only)")
     s.add_parser("hardware-matrix", help="print pre-hardware sensor engineering & readiness comparison")
 
+    d = s.add_parser("design", help="run S1-S7 engineering solutions & Pareto design engine")
+    d.add_argument("--site", required=True, help="path to site.json")
+    d.add_argument("--weather", required=True, help="path to weather.csv")
+    d.add_argument("--tariff", required=True, help="path to tariff.json")
+    d.add_argument("--telemetry", help="optional path to observed interval telemetry CSV")
+    d.add_argument("--output-dir", help="optional directory to write candidate_solutions.json, ranked_pareto.csv, engineering_report.md, assumption_receipts.json, equipment_boundary.md")
+
+    c = s.add_parser("claims", help="audit promised vs documented public-benefit & economic claims JSON")
+    c.add_argument("--file", required=True, help="path to public claims JSON filing")
+
+    s.add_parser("concepts", help="output the three complete worked engineering concept packets")
+
     args = p.parse_args()
     try:
         if args.command == "audit":
@@ -694,8 +706,23 @@ def main() -> int:
             result = evaluate_scenario(json.loads(Path(args.json).read_text(encoding="utf-8")))
         elif args.command == "compete":
             result = evaluate_matched_plant_sensor_competition()
-        else:
+        elif args.command == "hardware-matrix":
             result = evaluate_pre_hardware_sensor_matrix()
+        elif args.command == "design":
+            from solutions import run_design_engine
+            result = run_design_engine(
+                args.site,
+                args.weather,
+                args.tariff,
+                telemetry_path=args.telemetry,
+                output_dir=args.output_dir,
+            )
+        elif args.command == "claims":
+            from solutions import evaluate_public_benefit_claims
+            result = evaluate_public_benefit_claims(json.loads(Path(args.file).read_text(encoding="utf-8")))
+        else:
+            from solutions import generate_three_worked_engineering_concepts
+            result = generate_three_worked_engineering_concepts()
     except (EvidenceError, json.JSONDecodeError, ValueError) as e:
         print(json.dumps({"status": "HOLD_INVALID_EVIDENCE", "error": str(e)}, indent=2))
         return 2

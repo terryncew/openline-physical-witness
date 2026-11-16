@@ -20,3 +20,11 @@ A replicated comparison where additional measurement or active identification re
 **No independent facility has validated this work. The tool does not control cooling equipment.** The previous private research model's ~70% modeled water delta came predominantly from assumed *cooling plant design changes*, not a demonstrated OpenLine sensor advantage.
 
 The work is free to inspect, reproduce, critique and extend under the repository's Apache-2.0 license. Contributions that disprove the idea are as welcome as ones that improve it.
+
+## 004 model challenge — build or break a cooling design
+
+Try `python3 water_audit.py design --site data/site_phoenix_arid.json --weather data/weather_phoenix_sample.csv --tariff data/tariff_phoenix.json --output-dir out_phoenix`. This generates cooling-plant scenarios, conservative chemistry screening, cost-incidence alternatives and an equipment boundary. All sample weather, prices and loads are **constructed inputs** and should not be mistaken for site claims.
+
+Can you supply a lawful open dataset with independently calibrated wet-bulb/IT heat load, CDU inlet, cooling tower makeup and blowdown, and site electricity for the same time intervals? Or show an established tower optimizer or vendor design this model has missed? A decisive critique is worth more than another synthetic savings headline.
+
+Do **not** use the result for live plant actuation, chemical dosing, approved equipment purchases, or public statements of observed savings.
