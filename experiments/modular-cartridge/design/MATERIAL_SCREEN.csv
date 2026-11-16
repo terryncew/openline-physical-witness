@@ -1,0 +1,8 @@
+Candidate,Function,Claim status,Primary failure to measure,Decision evidence
+PCB plated electrode,Low-cost electrical bring-up control,Lab control only not brine-qualified,Nickel exposure corrosion passivation failure,Coating microscopy impedance and shunt drift in real salinity
+Ti/Au on borosilicate,Thin film electrical sensor candidate,Hypothesis with unqualified wet durability,Edge delamination pinholes adhesion and electrochemical attack,Adhesion microscopy leak impedance before/after wash cycles
+Pt-on-glass,Electrode candidate commercial or fabricated,No lifetime or price claim,Platinum film adhesion passivation and bond pad leakage,Wet endurance manufacturer quote thickness coverage and visual inspection
+Alumina/ceramic coupon,Alternative thermal substrate candidate,Not automatically more isolated than FR4,High thermal conductivity and parasitic thermal paths,Measured 3omega signal noise calibration across frequencies
+FR4 coupon,Electronics/thermal comparator not production,Unqualified for wet chemistry long-term,Delamination drift swelling copper leach,Protected lab-only blank drift and failure inspection
+Glass coupon,Thermal substrate candidate,Prior art exists but stack not qualified,Glass surface deposition heater deposition and dielectric cracks,Measured 3omega amplitude SNR against known calibration
+Elastomer gasket,Low-pressure clamp seal candidate,Material and pressure rating unknown,Swelling creep leakage chemical incompatibility,Actual solvent salt and thermal cycle and leak tests

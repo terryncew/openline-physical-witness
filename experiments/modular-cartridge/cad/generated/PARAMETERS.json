@@ -1,0 +1,54 @@
+{
+  "outer_x_mm": 92.0,
+  "outer_y_mm": 82.0,
+  "base_thickness_mm": 6.0,
+  "lid_thickness_mm": 8.0,
+  "channel_length_mm": 64.0,
+  "channel_width_mm": 9.0,
+  "channel_lid_depth_mm": 0.8,
+  "channel_pitch_mm": 21.0,
+  "gasket_window_length_mm": 67.0,
+  "gasket_window_width_mm": 11.0,
+  "gasket_nominal_mm": 1.0,
+  "hard_stop_nominal_mm": 0.75,
+  "gasket_tol_mm": 0.05,
+  "stop_tol_mm": 0.05,
+  "coupon_length_mm": 16.0,
+  "coupon_width_mm": 10.0,
+  "coupon_pocket_depth_mm": 0.7,
+  "port_diameter_mm": 2.2,
+  "bolt_clearance_mm": 4.2,
+  "channels": [
+    -21.0,
+    0.0,
+    21.0
+  ],
+  "bolt_locations": [
+    [
+      -38.0,
+      -32.0
+    ],
+    [
+      -38.0,
+      32.0
+    ],
+    [
+      38.0,
+      -32.0
+    ],
+    [
+      38.0,
+      32.0
+    ]
+  ],
+  "alignment_locations": [
+    [
+      20.0,
+      35.0
+    ],
+    [
+      -20.0,
+      -35.0
+    ]
+  ]
+}

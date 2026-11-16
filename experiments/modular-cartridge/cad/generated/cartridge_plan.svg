@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660.0 612.0">
+<rect width="100%" height="100%" fill="#fcfcfb"/>
+<rect x="54.0" y="60.0" width="552.0" height="492.0" rx="18" fill="#ecf2f3" stroke="#0b3643" stroke-width="2"/>
+<rect x="129.0" y="147.0" width="402.0" height="66.0" rx="6" fill="#d7e9ee" stroke="#246076" stroke-width="2"/>
+<rect x="282.0" y="150.0" width="96.0" height="60.0" rx="3" fill="#dfbb8e" stroke="#55666e" stroke-width="2"/>
+<circle cx="156.0" cy="180.0" r="6.6000000000000005" fill="#fff" stroke="#276071" stroke-width="2"/>
+<circle cx="504.0" cy="180.0" r="6.6000000000000005" fill="#fff" stroke="#276071" stroke-width="2"/>
+<text x="139.2" y="171.0" font-family="Arial,sans-serif" font-size="11" text-anchor="start" fill="#14383e">S — depositing</text>
+<rect x="129.0" y="273.0" width="402.0" height="66.0" rx="6" fill="#d7e9ee" stroke="#246076" stroke-width="2"/>
+<rect x="282.0" y="276.0" width="96.0" height="60.0" rx="3" fill="#c8d2d4" stroke="#55666e" stroke-width="2"/>
+<circle cx="156.0" cy="306.0" r="6.6000000000000005" fill="#fff" stroke="#276071" stroke-width="2"/>
+<circle cx="504.0" cy="306.0" r="6.6000000000000005" fill="#fff" stroke="#276071" stroke-width="2"/>
+<text x="139.2" y="297.0" font-family="Arial,sans-serif" font-size="11" text-anchor="start" fill="#14383e">R — reference</text>
+<rect x="129.0" y="399.0" width="402.0" height="66.0" rx="6" fill="#d7e9ee" stroke="#246076" stroke-width="2"/>
+<rect x="282.0" y="402.0" width="96.0" height="60.0" rx="3" fill="#c8d2d4" stroke="#55666e" stroke-width="2"/>
+<circle cx="156.0" cy="432.0" r="6.6000000000000005" fill="#fff" stroke="#276071" stroke-width="2"/>
+<circle cx="504.0" cy="432.0" r="6.6000000000000005" fill="#fff" stroke="#276071" stroke-width="2"/>
+<text x="139.2" y="423.0" font-family="Arial,sans-serif" font-size="11" text-anchor="start" fill="#14383e">G — guard</text>
+<circle cx="102.0" cy="114.0" r="12.600000000000001" fill="white" stroke="#0b3643" stroke-width="2"/>
+<circle cx="102.0" cy="498.0" r="12.600000000000001" fill="white" stroke="#0b3643" stroke-width="2"/>
+<circle cx="558.0" cy="114.0" r="12.600000000000001" fill="white" stroke="#0b3643" stroke-width="2"/>
+<circle cx="558.0" cy="498.0" r="12.600000000000001" fill="white" stroke="#0b3643" stroke-width="2"/>
+<circle cx="450.0" cy="516.0" r="7" fill="#f7a760" stroke="#a85e21" stroke-width="1.8"/>
+<circle cx="210.0" cy="96.0" r="7" fill="#f7a760" stroke="#a85e21" stroke-width="1.8"/>
+<text x="330.0" y="602.0" fill="#3a5059" text-anchor="middle" font-family="Arial" font-size="15">92 × 82 mm review fixture · S/R/G independently plumbed · dimensions are provisional</text>
+</svg>
