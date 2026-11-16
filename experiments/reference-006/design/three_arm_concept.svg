@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590" role="img" aria-label="Research-only functional diagram: common monitored process water feeds a sense, reference, and protected guard coupon. Independent reference-to-guard measurements gate any estimate. Physical testing required.">
+  <rect x="0" y="0" width="1200" height="590" fill="#fcfaf5"/>
+  <style>.t{font:600 19px Arial,sans-serif;fill:#1d2a36}.s{font:14px Arial,sans-serif;fill:#46505c}.h{font:600 28px Georgia,serif;fill:#192532}.water{stroke:#498aaa;stroke-width:9;stroke-linecap:round;fill:none}.box{fill:white;stroke:#bdc4c7;stroke-width:2;rx:12}.raw{stroke:#bc703d;stroke-width:3;fill:none;stroke-linecap:round}.warn{font:600 17px Arial,sans-serif;fill:#9a4b31}</style>
+  <text x="40" y="48" class="h">Three-arm reference challenge</text>
+  <text x="40" y="76" class="s">Functional concept only · no verified PCB or fluidics · no measured accuracy</text>
+  <rect x="30" y="125" width="205" height="90" class="box"/>
+  <text x="46" y="154" class="t">Process-water inlet</text><text x="46" y="177" class="s">Measure temp / EC / flow</text><text x="46" y="196" class="s">before splitting</text>
+  <path d="M235 170H285M285 170V355" class="water"/><path d="M285 170H340M285 265H340M285 355H340" class="water"/>
+  <g>
+  <rect x="340" y="125" width="280" height="90" class="box"/><text x="354" y="157" class="t">S — depositing surface</text><text x="354" y="182" class="s">Thermal + impedance measurements</text><rect x="352" y="193" width="125" height="8" fill="#dc9164"/>
+  <rect x="340" y="220" width="280" height="90" class="box"/><text x="354" y="253" class="t">R — nominal reference</text><text x="354" y="278" class="s">Intentionally foul in challenge</text><rect x="352" y="289" width="125" height="8" fill="#8c9da8"/>
+  <rect x="340" y="315" width="280" height="90" class="box"/><text x="354" y="348" class="t">G — protected witness</text><text x="354" y="373" class="s">Independent cleanliness inspection</text><rect x="352" y="384" width="125" height="8" fill="#76aa9a"/>
+  </g>
+  <path d="M620 169H679M620 265H679M620 360H679" class="water"/>
+  <rect x="685" y="120" width="225" height="292" class="box"/>
+  <text x="703" y="151" class="t">Measurement paths</text>
+  <text x="703" y="184" class="s">S − R differential</text>
+  <text x="703" y="219" class="s">R − G independently</text>
+  <text x="703" y="255" class="s">Two complex 3ω frequencies</text>
+  <text x="703" y="289" class="s">Independent IDE witness</text>
+  <text x="703" y="324" class="s">Match temp / EC / flow</text>
+  <text x="703" y="358" class="s">Independent turbidity screen</text>
+  <text x="703" y="386" class="s">Fresh service/blank evidence</text>
+  <path d="M910 265H947" class="raw"/><path d="M940 258L949 265L940 272" class="raw"/>
+  <rect x="950" y="171" width="225" height="190" rx="13" fill="#f4e5d8" stroke="#c98661" stroke-width="2"/>
+  <text x="968" y="206" class="t">Fail-closed gate</text>
+  <text x="968" y="238" class="s">Out-of-range? HOLD</text>
+  <text x="968" y="263" class="s">Dirty reference? HOLD</text>
+  <text x="968" y="288" class="s">Mixed water? HOLD</text>
+  <text x="968" y="322" class="warn">No operational approval</text>
+  <path d="M332 446H1156" stroke="#c7ccce" stroke-width="1.5"/>
+  <text x="44" y="481" class="t">Physical falsifiers</text>
+  <text x="44" y="512" class="s">Guard fouls too · branch chemistry/flow differs · shared ADC crosstalk masks faults · third arm adds no information beyond conventional instruments</text>
+  <text x="44" y="546" class="warn">Unbuilt research architecture. Existing two-arm measurements may be mathematically non-identifiable.</text>
+</svg>
