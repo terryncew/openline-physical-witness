@@ -1,4 +1,43 @@
-# OTDB-APW Rev D — Orthogonal Thermo-Electro-Differential Bridge & Fisher-Rank Active Physical Witness
+# OpenLine Physical Witness
+
+**Open computational research toward earlier detection of mineral buildup on water-treatment membranes.** This project asks whether thermal and electrical measurements can help separate real surface deposits from changes in dissolved salts, temperature and water flow. If the approach survives physical testing and proves inexpensive to manufacture, it could help operators make better decisions about cleaning and water recovery in desalination, reuse and industrial systems. **No physical benefit has been demonstrated.**
+
+**Current status — November 2026:** The original sensor design and model are reproducible computational research; two later supplements explore a cheaper first benchtop experiment and a potential remedy for reference contamination. **No wafer, PCB, sensor coupon or wet-loop prototype has been built or measured.** None of these files should be used to control water-treatment equipment or to order hardware without independent engineering qualification.
+
+## Start here: what is available today
+
+| Evidence level | What is public | What remains unproven |
+| --- | --- | --- |
+| [004 — Original computational release](https://github.com/terryncew/openline-physical-witness/releases/tag/v0.4.0-rc4) | Reproducible synthetic models, competing baselines, design files and falsification protocol; frozen release tag | Actual sensor performance, native KiCad and foundry checks |
+| [005 — Benchtop feasibility study](experiments/benchtop-005/README.md) | A candidate flow-cell experiment using open impedance hardware, host-tested lock-in math and reference checks, parts/model review | Qualified AD5941 electronics, acquisition drivers, assembled equipment, vendor-confirmed cost and measured data |
+| [006 — Reference-contamination challenge](experiments/reference-006/README.md) | Three-arm observability model, host-tested fail-closed witness, [functional diagram](experiments/reference-006/design/three_arm_concept.svg), 48-pin datasheet transcription and physical lab protocol | An actually clean protected guard, independent analogue acquisition, hardware reliability and demonstrated fault detection |
+
+The **NC5 failure remains open:** in the original *synthetic* partial-reference-fouling test, the proposed design produced **71.17% mean thickness error without an alarm**. A conventional calibrated multisensor approach did better. The 006 design adds an additional observation that *might* reveal reference contamination, but it has **not** been proven on real sensors. Both the failures and the cases where conventional methods win remain in the source.
+
+![Three-arm reference-sensor experiment: functional concept only, not a photograph or validated instrument](experiments/reference-006/design/three_arm_concept.svg)
+
+**For scientists and engineers:** Read the [one-page technical review](ONE_PAGE_EXPERT_REVIEW_SHEET.md), the [current independent lab challenge](experiments/reference-006/design/LAB_HANDOFF.md), the [limitations](HONEST_LIMITATIONS.md), and the [research status summary](RESEARCH_STATUS.md). We welcome critical replication, a better conventional baseline, or an experiment that disproves the hypothesis. No laboratory or equipment manufacturer has endorsed this work.
+
+**For software agents and automated research tools:** Start at [AGENTS.md](AGENTS.md) and [RESEARCH_STATUS.md](RESEARCH_STATUS.md); use [experiments/README.md](experiments/README.md) to find the current work. Do not interpret passing software checks as physical validation. Reproducible commands and acceptance boundaries are below.
+
+**Reproduce each independent artifact:**
+
+```bash
+# Original computational release (Python 3.11 + pinned requirements + GCC)
+bash ./REPRODUCE_OTDB_APW_RELEASE_004.sh
+
+# Benchtop 005 exploratory checks
+(cd experiments/benchtop-005 && bash VERIFY_CANDIDATE.sh)
+
+# Reference 006 exploratory checks
+(cd experiments/reference-006 && bash VERIFY_RESEARCH_ONLY.sh)
+```
+
+The original [`v0.4.0-rc4` release](https://github.com/terryncew/openline-physical-witness/releases/tag/v0.4.0-rc4) is preserved at its original commit. The root source manifests cover the **004 release file set**; later research supplements each retain their own hashes and tests. The current `main` branch includes this updated navigation and independent add-on research; it is **not** a new qualified hardware release.
+
+---
+
+## Original technical dossier — OTDB-APW Rev D
 ## Computational Research Release Candidate 004 (`v0.4.0-rc4`)
 
 > **EPISTEMIC & QUALIFICATION DISCLOSURE (`SCIENTIFIC RC WITH DECLARED EDA/FAB HOLDS`)**:
